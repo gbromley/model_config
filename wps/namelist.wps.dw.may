@@ -1,8 +1,8 @@
 &share
  wrf_core = 'ARW',
  max_dom = 1,
- start_date = '2015-05-01_00:00:00', 
- end_date   = '2015-05-31_00:00:00', 
+ start_date = '2015-05-01_00:00:00',
+ end_date   = '2015-05-31_00:00:00',
  interval_seconds = 21600,
  io_form_geogrid = 2,
  opt_output_from_geogrid_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/',
