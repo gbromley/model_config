@@ -38,7 +38,7 @@
 &metgrid
  fg_name = 'FILE',
  io_form_metgrid = 2,
- opt_output_from_metgrid_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/',
+ opt_output_from_metgrid_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/met/',
 /
 
 &mod_levs
