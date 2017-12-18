@@ -26,7 +26,6 @@
  truelat2  = 47.693,
  stand_lon = -104.985,
  geog_data_path = '/mnt/lustrefs/store/gabriel.bromley/wrf_input_data/static/WPS_GEOG/',
- opt_geogrid_tbl_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/',
  ref_x = 50.0,
  ref_y = 50.0,
 /
@@ -40,7 +39,6 @@
  fg_name = 'FILE',
  io_form_metgrid = 2,
  opt_output_from_metgrid_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/',
- opt_metgrid_tbl_path = '/mnt/lustrefs/store/gabriel.bromley/wps_output/NGP/',
 /
 
 &mod_levs
