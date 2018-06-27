@@ -1,31 +1,32 @@
  &time_control
- run_days                            = 10,
+ run_days                            = 91,
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
  start_year                          = 2015,
- start_month                         = 05,
- start_day                           = 21,
+ start_month                         = 04,
+ start_day                           = 01,
  start_hour                          = 00,
  start_minute                        = 00,
  start_second                        = 00,
  end_year                            = 2015,
- end_month                           = 05,
- end_day                             = 31,
+ end_month                           = 07,
+ end_day                             = 01,
  end_hour                            = 00,
  end_minute                          = 00,
  end_second                          = 00,
  interval_seconds                    = 21600
  input_from_file                     = .true.,
- history_interval                    = 180,
- frames_per_outfile                  = 1000,
+ history_interval                    = 60,
+ frames_per_outfile                  = 24,
  restart                             = .false.,
- restart_interval                    = 5000,
- io_form_history                     = 2
- io_form_restart                     = 2
- io_form_input                       = 2
- io_form_boundary                    = 2
- debug_level                         = 0
+ restart_interval                    = 360,
+ io_form_history                     = 2,
+ io_form_restart                     = 2,
+ io_form_input                       = 2,
+ io_form_boundary                    = 2,
+ debug_level                         = 0,
+ output_ready_flag                   = .true.,
  /
 
  &domains
@@ -37,10 +38,10 @@
  e_sn                                = 100,
  e_vert                              = 30,
  p_top_requested                     = 5000,
- num_metgrid_levels                  = 27,
+ num_metgrid_levels                  = 50,
  num_metgrid_soil_levels             = 4,
- dx                                  = 18300,
- dy                                  = 18300,
+ dx                                  = 20000,
+ dy                                  = 20000,
  grid_id                             = 1,
  parent_id                           = 0,
  i_parent_start                      = 1,
@@ -48,8 +49,10 @@
  parent_grid_ratio                   = 1,
  parent_time_step_ratio              = 1,
  feedback                            = 1,
- smooth_option                       = 0
+ smooth_option                       = 0,
  /
+ &noah_mp
+ dveg                                = 2,
 
  &physics
  physics_suite                       = 'CONUS'
@@ -58,17 +61,19 @@
  cudt                                = 5,
  icloud                              = 1,
  num_soil_layers                     = 4,
- num_land_cat                        = 21,
+ num_land_cat                        = 20,
+ sf_surface_moasic                   = 1,
  sf_urban_physics                    = 0,
  sf_surface_physics                  = 4,
  bl_pbl_physics                      = 1,
  sf_sfclay_physics                   = 1,
- ra_sw_physics                       = 1,
- ra_lw_physics                       = 1,
- mp_physics                          = 4,
- cu_physics                          = 1,
- shcu_physics                        = 3,
- cu_rad_feedback                     = .true.,
+ ra_sw_physics                       = 4,
+ ra_lw_physics                       = 4,
+ mp_physics                          = 8,
+ cu_physics                          = 14,
+ shcu_physics                        = 0,
+ isfflx                              = 1,
+ sst_update                          = 1,
 
 
 
@@ -80,11 +85,11 @@
  &dynamics
  w_damping                           = 0,
  diff_opt                            = 1,
- km_opt                              = 4,   
+ km_opt                              = 4,
  diff_6th_opt                        = 0,
  diff_6th_factor                     = 0.12,
  base_temp                           = 290.
- damp_opt                            = 0,
+ damp_opt                            = 3,
  zdamp                               = 5000.,
  dampcoef                            = 0.2,
  khdif                               = 0,
