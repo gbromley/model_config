@@ -1,5 +1,5 @@
  &time_control
- run_days                            = 91,
+ run_days                            = 61,
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
@@ -10,12 +10,12 @@
  start_minute                        = 00,
  start_second                        = 00,
  end_year                            = 2015,
- end_month                           = 07,
+ end_month                           = 06,
  end_day                             = 01,
  end_hour                            = 00,
  end_minute                          = 00,
  end_second                          = 00,
- interval_seconds                    = 21600
+ interval_seconds                    = 21600,
  input_from_file                     = .true.,
  history_interval                    = 60,
  frames_per_outfile                  = 24,
@@ -53,9 +53,9 @@
  /
  &noah_mp
  dveg                                = 2,
-
+ /
  &physics
- physics_suite                       = 'CONUS'
+ physics_suite                       = 'CONUS',
  radt                                = 30,
  bldt                                = 0,
  cudt                                = 5,
@@ -88,7 +88,7 @@
  km_opt                              = 4,
  diff_6th_opt                        = 0,
  diff_6th_factor                     = 0.12,
- base_temp                           = 290.
+ base_temp                           = 290.,
  damp_opt                            = 3,
  zdamp                               = 5000.,
  dampcoef                            = 0.2,
