@@ -1,10 +1,10 @@
 #!/bin/csh
 
 ### Project name
-#PBS -A xxxxxxxx
+#PBS -A P66770001
 
 ### Job name
-#PBS -N metgrid 
+#PBS -N metgrid_gbromley 
 
 ### Wallclock time
 #PBS -l walltime=00:30:00

@@ -5,7 +5,6 @@
  end_date   = '2015-07-01_00:00:00',
  interval_seconds = 21600
  io_form_geogrid = 2,
- debug_level = 100,
  opt_output_from_geogrid_path = '/glade/work/gbromley/wrf_data/geogrid_output/20km_wrf/',
 /
 
@@ -14,8 +13,8 @@
  parent_grid_ratio =   1,   
  i_parent_start    =   1,  
  j_parent_start    =   1,  
- e_we              =  74, 
- e_sn              =  61, 
+ e_we              =  290, 
+ e_sn              =  200, 
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  ! The default datasets used to produce the HGT_M, GREENFRAC, 
@@ -35,11 +34,11 @@
  dx = 20000,
  dy = 20000,
  map_proj =  'lambert',
- ref_lat   = 45.000,
- ref_lon   = -105.000,
- truelat1  = 50.000,
+ ref_lat   = 49.000,
+ ref_lon   = -104.000,
+ truelat1  = 55.000,
  truelat2  = 40.000,
- stand_lon = -105.000,
+ stand_lon = -104.000,
  geog_data_path = '/glade/p/work/wrfhelp/WPS_GEOG/'
 /
 
@@ -49,7 +48,7 @@
 /
 
 &metgrid
- fg_name = 'FILE',
+ fg_name = 'FILE','PRES',
  io_form_metgrid = 2,
  opt_output_from_metgrid_path = '/glade/scratch/gbromley/metgrid_data/',
  
