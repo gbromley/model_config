@@ -1,8 +1,8 @@
 &share
  wrf_core = 'ARW',
  max_dom = 2,
- start_date = '2015-04-01_00:00:00','2015-05-01_00:00:00'
- end_date   = '2015-07-01_00:00:00','2015-04-01_00:00:00'
+ start_date = '2015-04-01_00:00:00','2015-04-01_00:00:00'
+ end_date   = '2015-07-01_00:00:00','2015-07-01_00:00:00'
  interval_seconds = 21600
  io_form_geogrid = 2,
  opt_output_from_geogrid_path = '/glade/work/gbromley/wrf_data/geogrid_output/4km_wrf/',
@@ -11,10 +11,10 @@
 &geogrid
  parent_id         =   1, 1,
  parent_grid_ratio =   1, 5,
- i_parent_start    =   1, 50
- j_parent_start    =   1, 50
- e_we              =  290,800,
- e_sn              =  200,500,
+ i_parent_start    =   1, 65
+ j_parent_start    =   1, 60
+ e_we              =  290,796,
+ e_sn              =  200,496,
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  ! The default datasets used to produce the HGT_M, GREENFRAC,
@@ -39,7 +39,7 @@
  truelat1  = 50.000,
  truelat2  = 43.000,
  stand_lon = -107.000,
- geog_data_path = '/glade/p/work/wrfhelp/WPS_GEOG/'
+ geog_data_path = '/glade/p_old/work/wrfhelp/WPS_GEOG/',
 /
 
 &ungrib
