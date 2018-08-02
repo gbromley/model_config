@@ -30,8 +30,41 @@
  auxinput4_interval                  = 360,
  io_form_auxinput4                   = 2,
  io_form_auxinput2                   = 2,
- 
+ !## adding pressure level output
+ auxhist23_outname                   = press_d<domain>_<date>.nc"
+ auxhist23_interval                  = 60,
+ frames_per_auxhist23                = 24,
+ !## adding mean value calculations
+ mean_diag                           = 1,
+ mean_diag_interval_mo               = 1,
+ auxhist5_outname                    = "mean_d<domain>_<date>.nc",
+ io_form_auxhist5                    = 2,
+ frames_per_auxhist5                 = 1,
+
+ !## adding the severe parameters output
+ auxhist2_outname                   = "conv_d<domain>_<date>.nc",
+ io_form_auxhist2                   = 2,
+ frames_per_auxhist2                = 8,
+ auxhist2_interval                  = 180,
+!## output streams definition
+ iofields_filename                  = "output_fields.txt",
+ ignore_iofields_warning            = .false.,
+!## rainfall data
+ auxhist7_outname                   = "rainfall_d<domain>_<date>.nc",
+ auxhist7_interval                  = 60,
+ frames_per_auxhist7                = 24,
+ io_form_auxhist7                   = 2,
+ !## 2d data
+ auxhist24_outname                  = "sfc_d<domain>_<date>.nc"
+ auxhist24_interval                 = 60,
+ frames_per_outfile                 = 24,
+ io_form_auxhist24                  = 2,
  /
+&diag
+p_lev_diags = 1,
+num_press_levels = 11,
+press_levels = 100000,95000,90000,85000,80000,70000,60000,50000,40000,30000,20000,
+/
 
  &domains
  time_step                           = 20,
