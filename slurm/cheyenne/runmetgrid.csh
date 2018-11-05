@@ -16,6 +16,6 @@
 #PBS -j oe                    
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
-#PBS -l select=2:ncpus=36:mpiprocs=36  
+#PBS -l select=1:ncpus=36:mpiprocs=36  
 
 mpiexec_mpt ./metgrid.exe

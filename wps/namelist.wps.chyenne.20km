@@ -1,9 +1,9 @@
 &share
  wrf_core = 'ARW',
  max_dom = 1,
- start_date = '2015-04-01_00:00:00',
- end_date   = '2015-07-01_00:00:00',
- interval_seconds = 21600
+ start_date = '2011-10-01_00:00:00',
+ end_date   = '2012-10-01_00:00:00',
+ interval_seconds = 21600,
  io_form_geogrid = 2,
  opt_output_from_geogrid_path = '/glade/work/gbromley/wrf_data/geogrid_output/20km_wrf/',
 /
@@ -30,7 +30,7 @@
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !
- geog_data_res = 'gtopo_30s+modis_15s+modis_lai'
+ geog_data_res = 'modis_15s+modis_lai+default',
  dx = 20000,
  dy = 20000,
  map_proj =  'lambert',
@@ -39,7 +39,7 @@
  truelat1  = 55.000,
  truelat2  = 40.000,
  stand_lon = -104.000,
- geog_data_path = '/glade/p/work/wrfhelp/WPS_GEOG/'
+ geog_data_path = '/glade/work/wrfhelp/WPS_GEOG/',
 /
 
 &ungrib
