@@ -1,11 +1,11 @@
 &share
  wrf_core = 'ARW',
  max_dom = 1,
- start_date = '2011-10-01_00:00:00',
- end_date   = '2012-10-01_00:00:00',
+ start_date = '2012-10-01_00:00:00',
+ end_date   = '2013-10-01_00:00:00',
  interval_seconds = 21600,
  io_form_geogrid = 2,
- opt_output_from_geogrid_path = '/glade/work/gbromley/wrf_data/geogrid_output/20km_wrf/',
+ opt_output_from_geogrid_path = '/glade/work/gbromley/wrf_data/AGU_run/geogrid/',
 /
 
 &geogrid
@@ -30,7 +30,7 @@
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !
- geog_data_res = 'modis_15s+modis_lai+default',
+ geog_data_res = 'modis_lai+modis_15s+default',
  dx = 20000,
  dy = 20000,
  map_proj =  'lambert',
@@ -50,6 +50,6 @@
 &metgrid
  fg_name = 'FILE','PRES',
  io_form_metgrid = 2,
- opt_output_from_metgrid_path = '/glade/scratch/gbromley/metgrid_data/',
+ opt_output_from_metgrid_path = '/glade/scratch/gbromley/metgrid_data/AGU_run/',
  
 /

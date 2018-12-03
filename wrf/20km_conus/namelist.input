@@ -1,16 +1,16 @@
  &time_control
- run_days                            = 61,
+ run_days                            = 00,
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
- start_year                          = 2015,
- start_month                         = 04,
- start_day                           = 08,
+ start_year                          = 2013,
+ start_month                         = 07,
+ start_day                           = 29,
  start_hour                          = 00,
  start_minute                        = 00,
  start_second                        = 00,
- end_year                            = 2015,
- end_month                           = 06,
+ end_year                            = 2013,
+ end_month                           = 10,
  end_day                             = 01,
  end_hour                            = 00,
  end_minute                          = 00,
@@ -20,6 +20,7 @@
  history_interval                    = 60,
  frames_per_outfile                  = 24,
  restart                             = .true.,
+ write_hist_at_0h_rst		     = .true.,
  restart_interval                    = 10080,
  io_form_history                     = 2,
  io_form_restart                     = 2,
@@ -32,7 +33,7 @@
  /
 
  &domains
- time_step                           = 60,
+ time_step                           = 30,
  time_step_fract_num                 = 0,
  time_step_fract_den                 = 1,
  max_dom                             = 1,
@@ -85,7 +86,8 @@
  /
 
  &dynamics
- w_damping                           = 0,
+ w_damping                           = 1,
+ epssm				     = 0.5,
  diff_opt                            = 1,
  km_opt                              = 4,
  diff_6th_opt                        = 0,
