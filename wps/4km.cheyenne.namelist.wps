@@ -1,20 +1,20 @@
 &share
  wrf_core = 'ARW',
  max_dom = 2,
- start_date = '2013-05-01_00:00:00','2013-05-01_00:00:00'
- end_date   = '2013-07-01_00:00:00','2013-07-01_00:00:00'
- interval_seconds = 21600
+ start_date = '2013-05-01_00:00:00',
+ end_date   = '2013-07-01_00:00:00',
+ interval_seconds = 21600,
  io_form_geogrid = 2,
- opt_output_from_geogrid_path = '/glade/scratch/gbromley/AGU_2018/4km/geogrid/',
+ opt_output_from_geogrid_path = '/glade/scratch/gbromley/era5_4km_test/geogrid/',
 /
 
 &geogrid
- parent_id         =   1, 1,
- parent_grid_ratio =   1, 5,
- i_parent_start    =   1, 65,
- j_parent_start    =   1, 60,
- e_we              =  290,796,
- e_sn              =  200,496,
+ parent_id         =   1, 
+ parent_grid_ratio =   1, 
+ i_parent_start    =   1, 
+ j_parent_start    =   1, 
+ e_we              =  700,
+ e_sn              =  500,
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  ! The default datasets used to produce the HGT_M, GREENFRAC,
@@ -30,16 +30,16 @@
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !
- geog_data_res = 'modis_15s+modis_lai+default','modis_15s+modis_lai+default',
- dx = 20000,4000,
- dy = 20000,4000,
+ geog_data_res = 'modis_15s+modis_lai+default',
+ dx = 4000,
+ dy = 4000,
  map_proj =  'lambert',
- ref_lat   = 48.000,
- ref_lon   = -107.000,
+ ref_lat   = 47.000,
+ ref_lon   = -104.000,
  truelat1  = 50.000,
- truelat2  = 43.000,
- stand_lon = -107.000,
- geog_data_path = '/glade/p_old/work/wrfhelp/WPS_GEOG/',
+ truelat2  = 40.000,
+ stand_lon = -104.000,
+ geog_data_path = '/glade/work/wrfhelp/WPS_GEOG/',
 /
 
 &ungrib
@@ -50,6 +50,5 @@
 &metgrid
  fg_name = 'FILE','PRES',
  io_form_metgrid = 2,
- opt_output_from_metgrid_path = '/glade/scratch/gbromley/AGU_2018/4km/metgrid/,
-
+ opt_output_from_metgrid_path = '/glade/scratch/gbromley/era5_4km_test/metgrid/',
 /

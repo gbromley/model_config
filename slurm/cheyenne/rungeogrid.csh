@@ -1,7 +1,7 @@
 #!/bin/csh
 
 ### Project name
-#PBS -A P66770001
+#PBS -A UMSB0001
 
 ### Job name
 #PBS -N geogrid_gbromley 
