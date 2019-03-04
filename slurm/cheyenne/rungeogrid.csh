@@ -1,13 +1,13 @@
 #!/bin/csh
 
 ### Project name
-#PBS -A P66770001
+#PBS -A UMSB0001
 
 ### Job name
 #PBS -N geogrid_gbromley 
 
 ### Wallclock time
-#PBS -l walltime=00:30:00
+#PBS -l walltime=01:00:00
 
 ### Queue
 #PBS -q regular
