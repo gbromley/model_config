@@ -1,17 +1,17 @@
  &time_control
- run_days                            = 07,
+ run_days                            = 00,
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
- start_year                          = 2015,2015,
+ start_year                          = 2013,2013,
  start_month                         = 04,04,
- start_day                           = 07,07
+ start_day                           = 01,01
  start_hour                          = 00,00,
  start_minute                        = 00,00,
  start_second                        = 00,00,
- end_year                            = 2015,2015,
- end_month                           = 04,04,
- end_day                             = 14,14,
+ end_year                            = 2013,2013,
+ end_month                           = 07,07,
+ end_day                             = 01,01,
  end_hour                            = 00,00,
  end_minute                          = 00,00,
  end_second                          = 00,00,
