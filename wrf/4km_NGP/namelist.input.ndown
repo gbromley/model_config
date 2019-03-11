@@ -4,7 +4,11 @@
  run_minutes                         = 0,
  run_seconds                         = 0,
  start_year                          = 2013,2013,
+<<<<<<< HEAD
  start_month                         = 04,04,
+=======
+ start_month                         = 05,05,
+>>>>>>> 025f3fbac40e1fbfab81758c3ad4a8871b89ceea
  start_day                           = 01,01
  start_hour                          = 00,00,
  start_minute                        = 00,00,
@@ -25,7 +29,7 @@
  io_form_restart                     = 2,
  io_form_input                       = 2,
  io_form_boundary                    = 2,
- debug_level                         = 100,
+ debug_level                         = 0,
  auxinput4_inname                    = "wrflowinp_d<domain>",
  auxinput4_interval                  = 360,
  io_form_auxinput4                   = 2,

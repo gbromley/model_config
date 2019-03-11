@@ -1,17 +1,17 @@
  &time_control
- run_days                            = 01,
+ run_days                            = 00,
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
- start_year                          = 2015,
- start_month                         = 04,
- start_day                           = 07
+ start_year                          = 2013,
+ start_month                         = 05,
+ start_day                           = 01,
  start_hour                          = 00,
  start_minute                        = 00,
  start_second                        = 00,
- end_year                            = 2015,
- end_month                           = 04,
- end_day                             = 08,
+ end_year                            = 2013,
+ end_month                           = 05,
+ end_day                             = 02,
  end_hour                            = 00,
  end_minute                          = 00,
  end_second                          = 00,
@@ -20,7 +20,7 @@
  history_interval                    = 60,
  frames_per_outfile                  = 24,
  restart                             = .false.,
- restart_interval                    = 10080,
+ restart_interval                    = 4320,
  io_form_history                     = 2,
  io_form_restart                     = 2,
  io_form_input                       = 2,
@@ -31,37 +31,38 @@
  io_form_auxinput4                   = 2,
  io_form_auxinput2                   = 2,
  !## adding pressure level output
- auxhist23_outname                   = "press_d<domain>_<date>.nc",
+ auxhist23_outname                   = "press_d<domain>_<date>",
  auxhist23_interval                  = 60,
  frames_per_auxhist23                = 24,
  io_form_auxhist23                   = 2,
  !## adding mean value calculations
- mean_diag                           = 1,
- mean_diag_interval_mo               = 1,
- auxhist5_outname                    = "mean_d<domain>_<date>.nc",
- io_form_auxhist5                    = 2,
- frames_per_auxhist5                 = 1,
+ output_diagnostics                  = 1,
+ auxhist3_outname                    = "mean_daily_d<domain>_<date>",
+ io_form_auxhist3                    = 2,
+ frames_per_auxhist3                 = 100,
+ auxhist3_interval                   = 1440,
 
  !## adding the severe parameters output
- auxhist2_outname                   = "conv_d<domain>_<date>.nc",
+ auxhist2_outname                   = "conv_d<domain>_<date>",
  io_form_auxhist2                   = 2,
  frames_per_auxhist2                = 8,
  auxhist2_interval                  = 180,
+ nwp_diagnostics  		    = 1, 
 !## output streams definition
  iofields_filename                  = "output_fields.txt",
- ignore_iofields_warning            = .false.,
+ ignore_iofields_warning            = .true.,
 !## rainfall data
- auxhist7_outname                   = "rainfall_d<domain>_<date>.nc",
+ auxhist7_outname                   = "rainfall_d<domain>_<date>",
  auxhist7_interval                  = 60,
  frames_per_auxhist7                = 24,
  io_form_auxhist7                   = 2,
  !## 2d data
- auxhist9_outname                  = "sfc_d<domain>_<date>.nc",
+ auxhist9_outname                  = "sfc_d<domain>_<date>",
  auxhist9_interval                 = 60,
  frames_per_auxhist9                = 24,
  io_form_auxhist9                   = 2,
  /
- &diag
+ &diags
  p_lev_diags                        = 1,
  num_press_levels                   = 11,
  press_levels = 100000,95000,90000,85000,80000,70000,60000,50000,40000,30000,20000,
@@ -112,6 +113,7 @@
  shcu_physics                        = 0,
  isfflx                              = 1,
  sst_update                          = 1,
+ do_radar_ref                        = 1,
 
 
 
