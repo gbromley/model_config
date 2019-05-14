@@ -1,31 +1,17 @@
-#!/bin/bash
+#!/bin/bash -l
+#SBATCH --job-name=era5_download_gbromley
+#SBATCH --account=UMSB0001
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:60:00
+#SBATCH --partition=dav
+#SBATCH --output=dep_job1.out.%j
 
-### Project name
-#PBS -A UMSB0001
 
-### Job name
-#PBS -N era5_download_gbromley
-
-### Wallclock time
-#PBS -l walltime=04:00:00
-
-### Queue
-#PBS -q economy
-
-### Merge output and error files
-#PBS -j oe
-
-### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=1:ncpus=4:mpiprocs=36
 
 module load python/3.6.8
 
 ncar_pylib
 
-START=2012
-END=2013
-SCRATCH_DIRECTORY=/glade/scratch/gbromley/era5_${START}-${END}
-mkdir -p ${SCRATCH_DIRECTORY}
-cd ${SCRATCH_DIRECTORY}
 
-python ~gbromley/config_files/model_config/scripts/era_5_download.py
+python3 /glade/u/home/gbromley/code/Python-Utilities/era_5_download.py 2011 2012
