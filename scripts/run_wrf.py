@@ -18,7 +18,11 @@
   {
    "cell_type": "code",
    "execution_count": 27,
-   "metadata": {},
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
    "outputs": [
     {
      "ename": "KeyboardInterrupt",
@@ -74,76 +78,8 @@
     "    with open(run_dir+'namelist.input', 'w+') as file:\n",
     "        file.write(new_namelist)\n",
     "    #submit new job\n",
-    "    subprocess.run('qsub runwrf.csh', shell=True)"
+    "    subprocess.run('qsub runwrf.csh', shell=True)\n"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 26,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'/Users/gbromley/code/wrf_run_configs/scripts/wrfrst_d01_2015-04-15_00:00:00'"
-      ]
-     },
-     "execution_count": 26,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "latest_restart"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 18,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'04'"
-      ]
-     },
-     "execution_count": 18,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "month_start"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['/Users/gbromley/code/wrf_run_configs/scripts/wrfrst_d01_2015-04-15_00:00:00',\n",
-       " '/Users/gbromley/code/wrf_run_configs/scripts/wrfrst_d01_2015-04-08_00:00:00']"
-      ]
-     },
-     "execution_count": 11,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "list_of_restarts"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {
@@ -163,6 +99,15 @@
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
    "version": "3.7.0"
+  },
+  "pycharm": {
+   "stem_cell": {
+    "cell_type": "raw",
+    "source": [],
+    "metadata": {
+     "collapsed": false
+    }
+   }
   }
  },
  "nbformat": 4,
