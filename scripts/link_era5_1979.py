@@ -5,19 +5,20 @@ import shutil
 import os
 
 
-atm_data = '/glade/collections/rda/data/ds627.0/ei.oper.an.ml/'
-sfc_data = '/glade/collections/rda/data/ds627.0/ei.oper.an.sfc/'
+atm_data = '/glade/collections/rda/data/ds633.0/e5.oper.an.pl/'
+sfc_data = '/glade/collections/rda/data/ds633.0/e5.oper.an.sfc/'
 
 scratch_dir = '/glade/scratch/gbromley/'
 
 start_year = int(sys.argv[1])
 end_year = int(sys.argv[2])
 
+
 if (end_year <= start_year):
     print("invalid years")
     sys.exit()
 
-if (start_year < 1979 or end_year >= 2018 or start_year >= 2017 or end_year <= 1979):
+if (start_year < 1979 or end_year >= 1995 or start_year >= 1995 or end_year <= 1979):
     print("invalid range of years")
     sys.exit()
 
@@ -26,7 +27,7 @@ months = ['01','02','03','04','05','06','07','08','09','10','11','12']
 print("grabbing "+str(start_year)+" to "+str(end_year))
 current_year = start_year
 
-data_dir = scratch_dir+"era_interim"+"_"+str(start_year)+"-"+str(end_year)
+data_dir = scratch_dir+"era5"+"_"+str(start_year)+"-"+str(end_year)
 
 if(os.path.exists(data_dir) and os.path.isdir(data_dir)):
     shutil.rmtree(data_dir)
