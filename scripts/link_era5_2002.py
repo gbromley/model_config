@@ -8,10 +8,15 @@ import os
 atm_data = '/glade/collections/rda/data/ds630.0/e5.oper.an.pl/'
 sfc_data = '/glade/collections/rda/data/ds630.0/e5.oper.an.sfc/'
 
-scratch_dir = '/glade/scratch/gbromley/'
+output_dir = str(sys.argv[3])
 
 start_year = int(sys.argv[1])
 end_year = int(sys.argv[2])
+
+if (os.path.isdir(output_dir) != True):
+    print("invalid output path")
+    sys.exit()
+
 
 
 if (end_year <= start_year):
@@ -27,7 +32,7 @@ months = ['01','02','03','04','05','06','07','08','09','10','11','12']
 print("grabbing "+str(start_year)+" to "+str(end_year))
 current_year = start_year
 
-data_dir = scratch_dir+"era5"+"_"+str(start_year)+"-"+str(end_year)
+data_dir = output_dir + "era5" + "_" + str(start_year) + "-" + str(end_year)
 
 if(os.path.exists(data_dir) and os.path.isdir(data_dir)):
     shutil.rmtree(data_dir)
