@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#!/usr/bin/env bash
-
 ### Project name
 #PBS -A UMSB0001
 
@@ -33,4 +31,4 @@ module load python/3.6.8
 
 ncar_pylib
 
-python3 /glade/u/home/gbromley/link_era5.py
+python3 /glade/u/home/gbromley/link_era5_2002.py 2011 2012 $RUNDIR
