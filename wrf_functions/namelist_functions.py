@@ -22,22 +22,22 @@ def advance_restart(prev_namelist, interval):
         print("Could not read file:", prev_namelist)
 
 
-    with open(prev_namelist, 'r+') as old_nl:
+    with open(prev_namelist, 'r') as old_nl:
         namelist = f90nml.read(old_nl)
         start_year = namelist['time_control']['start_year']
         start_month = namelist['time_control']['start_month']
         start_day = namelist['time_control']['start_day']
 
         current_restart = dt.date(start_year,start_month, start_day)
-        new_restart = current_restart + dt.timedelta(weeks = interval)
-        namelist.end_comma = True
+        new_restart = current_restart + dt.timedelta(weeks=interval)
+        namelist.end_comma=True
         namelist['time_control']['start_year'] = new_restart.year
-        namelist['time_control']['start_month'] = str(new_restart.month).zfill(2)
-        namelist['time_control']['start_day'] = str(new_restart.day).zfill(2)
+        namelist['time_control']['start_month'] = new_restart.month
+        namelist['time_control']['start_day'] = new_restart.day
 
 
         try:
-            namelist.write(new_restart.isoformat()+'_namelist.input', end_comma=True)
+            namelist.write(new_restart.isoformat()+'_namelist.input')
         except IOError:
             print('File already exists',new_restart.isoformat()+'_namelist.input')
 

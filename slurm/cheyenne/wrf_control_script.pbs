@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N era5_wrf_gbromley
+
+### Wallclock time
+#PBS -l walltime=12:00:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=10:ncpus=36:mpiprocs=36
+
+
+
+mpiexec_mpt wrf.exe > wrf_run.out
+
+
