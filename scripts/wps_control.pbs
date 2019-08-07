@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -l
 
 ### Project name
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N link_test
+#PBS -N WPS_gbromley
 
 ### Wallclock time
 #PBS -l walltime=00:30:00
@@ -16,20 +16,47 @@
 #PBS -j oe
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=4:ncpus=36:mpiprocs=36
+#PBS -l select=1:ncpus=1:mpiprocs=1
 
-
+export CONTROL=/glade/u/home/gbromley/config_files/model_config/
 
 export RUNDIR=/glade/scratch/gbromley/era5_12km_test/
+
+export DATADIR=/glade/scratch/gbromley/era5/
+
+
 
 if [! -d $RUNDIR ]
 then
     mkdir -p $RUNDIR
+    mkdir -p $RUNDIR/wps
 fi
 
 module load python/3.6.8
 
 ncar_pylib
 
-python3 /glade/u/home/gbromley/link_era5_2002.py 2011 2012 $RUNDIR
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file $RUNDIR/wps
+rm $RUNDIR/wps/namelist.wps
+
+ln -s $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+
+ln -s $CONTROL/slurm/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
+
+ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim-pl $RUNDIR/wps/Vtable
+
+#$RUNDIR/wps/link_grib.csh $DATADIR/*
+
+#JID1=`qsub -h rungeogrid.pbs`
+
+
+#JID2=`qsub -W depend=afterok:$JID1 metgrid.pbs`
+
+
+### Run if program runs successfully
+#if [[ $? == 0 ]]; then
+#    qsub job2.pbs
+#fi
+
+
 

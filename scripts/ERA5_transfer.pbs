@@ -21,4 +21,4 @@
 
 module reset
 
-srun ./get_era5.csh 2011100100
+srun ./get_era5.csh 2012100100
