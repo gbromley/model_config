@@ -31,8 +31,7 @@ export DATADIR=/glade/scratch/gbromley/era5
 
 
 
-if [! -d "$RUNDIR" ]
-then
+if [ ! -d "$RUNDIR" ];then
     mkdir -p $RUNDIR
     mkdir -p $RUNDIR/wps
 fi
