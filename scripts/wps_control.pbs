@@ -21,11 +21,11 @@
 #PBS -l select=1:ncpus=1:mpiprocs=1
 
 
-export CONTROL=/glade/u/home/gbromley/config_files/model_config/
+export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/era5_12km_test/
+export RUNDIR=/glade/scratch/gbromley/era5_12km_test
 
-export DATADIR=/glade/scratch/gbromley/era5/
+export DATADIR=/glade/scratch/gbromley/era5
 
 #PBS -o $RUNDIR/WPS_gbromley.out
 
