@@ -3,7 +3,7 @@
 
 #SBATCH --job-name=ERA5_transfer
 
-#SBATCH --account=UMSB0001
+#SBATCH --account=P66770001
 
 #SBATCH --ntasks=1
 
