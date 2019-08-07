@@ -13,7 +13,9 @@
 #PBS -q economy
 
 ### Merge output and error files
-#PBS -j oe 
+#PBS -j oe
+
+
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
 #PBS -l select=1:ncpus=1:mpiprocs=1
@@ -25,7 +27,7 @@ export RUNDIR=/glade/scratch/gbromley/era5_12km_test/
 
 export DATADIR=/glade/scratch/gbromley/era5/
 
-
+#PBS -o $RUNDIR/WPS_gbromley.out
 
 
 
