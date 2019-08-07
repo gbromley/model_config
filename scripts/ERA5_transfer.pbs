@@ -1,11 +1,20 @@
 #!/usr/bin/env bash -l
+
+
 #SBATCH --job-name=ERA5_transfer
-#SBATCH --account= UMSB0001
+
+#SBATCH --account=UMSB0001
+
 #SBATCH --ntasks=1
+
 #SBATCH --ntasks-per-node=1
+
 #SBATCH --time=24:00:00
+
 #SBATCH --partition=dav
-#SBATCH --output=HPSS_job.out.%j
+
+#SBATCH --output=ERA5_transfer.out.%j
+
 #SBATCH --export=TERM,HOME,SHELL
 
 ### Script gets 366 days of data at the moment ###
