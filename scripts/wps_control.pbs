@@ -1,12 +1,4 @@
 #!/bin/bash -l
-### Moving exports higher up
-
-export CONTROL=/glade/u/home/gbromley/config_files/model_config/
-
-export RUNDIR=/glade/scratch/gbromley/era5_12km_test/
-
-export DATADIR=/glade/scratch/gbromley/era5/
-
 
 ### Project name
 #PBS -A UMSB0001
@@ -21,10 +13,17 @@ export DATADIR=/glade/scratch/gbromley/era5/
 #PBS -q economy
 
 ### Merge output and error files
-#PBS -j oe $RUNDIR/wps_gbromley_log.txt
+#PBS -j oe /glade/scratch/gbromley/era5_12km_test/wps_gbromley_log.txt
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
 #PBS -l select=1:ncpus=1:mpiprocs=1
+
+
+export CONTROL=/glade/u/home/gbromley/config_files/model_config/
+
+export RUNDIR=/glade/scratch/gbromley/era5_12km_test/
+
+export DATADIR=/glade/scratch/gbromley/era5/
 
 
 
