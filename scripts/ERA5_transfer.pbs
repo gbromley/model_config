@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/tcsh
 
 
 #SBATCH --job-name=ERA5_transfer
@@ -15,10 +15,6 @@
 
 #SBATCH --output=ERA5_transfer.out.%j
 
-#SBATCH --export=TERM,HOME,SHELL
-
 ### Script gets 366 days of data at the moment ###
 
-module reset
-
-srun ./get_era5.csh 2012100100
+./get_era5.csh 2012100100
