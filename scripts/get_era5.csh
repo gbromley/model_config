@@ -45,8 +45,7 @@ endif
 #
 cd $WPSDIR
 #
-set MSSDIR      = /FS/DECS/DS630.0/e5.oper.an.pl/${current_cen}${current_year}${current_month}
-set MSSDIR2     = /FS/DECS/DS630.0/e5.oper.an.sfc/${current_cen}${current_year}${current_month}
+
 set MSSDIR0     = /FS/DECS/DS630.0/e5.oper.invariant/201601
 #
 set DataTime = ${current_cen}${current_year}${current_month}${current_day}${current_hour}
@@ -61,6 +60,8 @@ hsi cget $MSSDIR0/e5.oper.invariant.128_172_lsm.regn320sc.2016010100_2016010100.
 #
 while ( $numf < $num_days_plus1 )
 #
+set MSSDIR      = /FS/DECS/DS630.0/e5.oper.an.pl/${current_cen}${current_year}${current_month}
+set MSSDIR2     = /FS/DECS/DS630.0/e5.oper.an.sfc/${current_cen}${current_year}${current_month}
 set file_time_s = ${current_cen}${current_year}${current_month}${current_day}${current_hour}
 set file_time_e = ${current_cen}${current_year}${current_month}${current_day}23
 set data_type = e5.oper.an.pl.128

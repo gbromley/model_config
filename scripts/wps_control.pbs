@@ -40,13 +40,13 @@ module load python/3.6.8
 
 ncar_pylib
 
-cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file $RUNDIR/wps
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
 
 rm $RUNDIR/wps/namelist.wps
 
 ln -s $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
-ln -s $CONTROL/slurm/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
+ln -s $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
 ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim-pl $RUNDIR/wps/Vtable
 
