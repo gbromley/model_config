@@ -5,7 +5,7 @@
  end_date   = '2013-02-01_00:00:00',
  interval_seconds = 21600,
  io_form_geogrid = 2,
- opt_output_from_geogrid_path = '/glade/scratch/gbromley/era5_12km_test/wps/,
+ opt_output_from_geogrid_path = '/glade/scratch/gbromley/era5_12km_test/wps/',
 /
 
 &geogrid
