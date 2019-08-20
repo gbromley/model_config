@@ -28,7 +28,7 @@ export RUNDIR=/glade/scratch/gbromley/era5_12km_test
 export DATADIR=/glade/scratch/gbromley/era5/test_run/
 
 
-cd $RUNDIR
+
 
 
 if [ ! -d "$RUNDIR" ];then
@@ -39,6 +39,8 @@ fi
 module load python/3.6.8
 
 ncar_pylib
+
+cd $RUNDIR
 
 cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
 
