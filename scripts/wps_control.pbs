@@ -54,6 +54,10 @@ ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim-pl $RUNDIR/wps/Vtabl
 
 
 #TODO: See if geogrid is better run in this script or in a seperate one
+
+cd $RUNDIR/wps
+### change directory so the data gets to the correct place. ###
+
 $RUNDIR/wps/link_grib.csh $DATADIR/*
 
 $RUNDIR/wps/ungrib.exe
