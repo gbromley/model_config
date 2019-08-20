@@ -28,7 +28,7 @@ export RUNDIR=/glade/scratch/gbromley/era5_12km_test
 export DATADIR=/glade/scratch/gbromley/era5/test_run/
 
 
-
+cd $RUNDIR
 
 
 if [ ! -d "$RUNDIR" ];then
