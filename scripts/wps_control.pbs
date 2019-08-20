@@ -57,12 +57,15 @@ $RUNDIR/wps/link_grib.csh $DATADIR/*
 $RUNDIR/wps/ungrib.exe
 
 ### Run if program runs successfully
-#if [[ $? == 0 ]]; then
+if [[ $? == 0 ]]; then
+qsub -h rungeogrid.pbs
+
+
 #JID1=`qsub -h rungeogrid.pbs`
 
 
 #JID2=`qsub -W depend=afterok:$JID1 metgrid.pbs`
-#fi
+fi
 
 
 
