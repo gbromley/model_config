@@ -50,13 +50,15 @@ ln -s $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
 ln -s $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
-ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim-pl $RUNDIR/wps/Vtable
+
 
 
 #TODO: See if geogrid is better run in this script or in a seperate one
 
 cd $RUNDIR/wps
 ### change directory so the data gets to the correct place. ###
+
+ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
 $RUNDIR/wps/link_grib.csh $DATADIR/*
 
