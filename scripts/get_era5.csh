@@ -8,15 +8,16 @@ set echo
 set LOGINNAME   = $USER
 set TOPDIR      = /glade/scratch/${LOGINNAME}
 # this would be the directory you will download era5 data, create this directory before proceeding
-set WPSDIR      = /glade/scratch/$LOGINNAME/era5
+set WPSDIR      = /glade/scratch/$LOGINNAME/era5/test_run/
 # do not change this line
 set BINDIR      = /glade/u/home/wrfhelp/bin
 #
 # edit the next two numbers: for September, last_day_of_month = 30, for October, last_day_of_month = 31
 #      num_days: number of days for the data
 #
+
 set last_day_of_month = 31
-set num_days = 1
+set num_days = 365
 #
 # calculate the start time
 #
@@ -44,8 +45,7 @@ endif
 #
 cd $WPSDIR
 #
-set MSSDIR      = /FS/DECS/DS630.0/e5.oper.an.pl/${current_cen}${current_year}${current_month}
-set MSSDIR2     = /FS/DECS/DS630.0/e5.oper.an.sfc/${current_cen}${current_year}${current_month}
+
 set MSSDIR0     = /FS/DECS/DS630.0/e5.oper.invariant/201601
 #
 set DataTime = ${current_cen}${current_year}${current_month}${current_day}${current_hour}
@@ -60,6 +60,8 @@ hsi cget $MSSDIR0/e5.oper.invariant.128_172_lsm.regn320sc.2016010100_2016010100.
 #
 while ( $numf < $num_days_plus1 )
 #
+set MSSDIR      = /FS/DECS/DS630.0/e5.oper.an.pl/${current_cen}${current_year}${current_month}
+set MSSDIR2     = /FS/DECS/DS630.0/e5.oper.an.sfc/${current_cen}${current_year}${current_month}
 set file_time_s = ${current_cen}${current_year}${current_month}${current_day}${current_hour}
 set file_time_e = ${current_cen}${current_year}${current_month}${current_day}23
 set data_type = e5.oper.an.pl.128
@@ -79,24 +81,24 @@ set file_time_s = ${current_cen}${current_year}${current_month}0100
 set file_time_e = ${current_cen}${current_year}${current_month}${last_day_of_month}23
 set data_type_sfc = e5.oper.an.sfc.128
 #
-hsi cget $MSSDIR2/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_183_stl3.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_236_stl4.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_165_10u.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_166_10v.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_167_2t.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_168_2d.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_134_sp.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_151_msl.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_235_skt.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_033_rsn.${data_type_sc}.${file_time_s}_${file_time_e}.grb
-hsi cget $MSSDIR2/${data_type_sfc}_141_sd.${data_type_sc}.${file_time_s}_${file_time_e}.grb
+hsi cget $MSSDIR2/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_183_stl3.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_236_stl4.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_165_10u.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_166_10v.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_167_2t.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_168_2d.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_134_sp.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_151_msl.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_235_skt.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_033_rsn.${data_type_sc}.${file_time_s}_\*.grb
+hsi cget $MSSDIR2/${data_type_sfc}_141_sd.${data_type_sc}.${file_time_s}_\*.grb
 #
 # calculate date for next time
 #
