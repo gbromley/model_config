@@ -7,7 +7,7 @@
 #PBS -N WPS_gbromley
 
 ### Wallclock time
-#PBS -l walltime=06:00:00
+#PBS -l walltime=12:00:00
 
 ### Queue
 #PBS -q economy
@@ -18,7 +18,7 @@
 #PBS -o WPS_gbromley.out
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=1:ncpus=36:mpiprocs=1
+#PBS -l select=1:ncpus=36:mpiprocs=36
 
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
@@ -34,6 +34,8 @@ export DATADIR=/glade/scratch/gbromley/era5/test_run
 if [ ! -d "$RUNDIR" ];then
     mkdir -p $RUNDIR
     mkdir -p $RUNDIR/wps
+    mkdir -p $RUNDIR/metgrid
+    mkdir -p $RUNDIR/wrf
 fi
 
 module load python/3.6.8
@@ -43,6 +45,8 @@ ncar_pylib
 cd $RUNDIR
 
 cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
+
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.0.3_intel_dmpar/. $RUNDIR/wrf
 
 rm $RUNDIR/wps/namelist.wps
 
