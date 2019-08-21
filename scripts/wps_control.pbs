@@ -7,7 +7,7 @@
 #PBS -N WPS_gbromley
 
 ### Wallclock time
-#PBS -l walltime=00:30:00
+#PBS -l walltime=06:00:00
 
 ### Queue
 #PBS -q economy
@@ -18,7 +18,7 @@
 #PBS -o WPS_gbromley.out
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=1:ncpus=1:mpiprocs=1
+#PBS -l select=1:ncpus=36:mpiprocs=1
 
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
@@ -66,13 +66,16 @@ $RUNDIR/wps/ungrib.exe
 
 ### Run if program runs successfully
 if [[ $? == 0 ]]; then
-qsub -h rungeogrid.pbs
 
 
-#JID1=`qsub -h rungeogrid.pbs`
+
+JID1=`qsub -h rungeogrid.pbs`
 
 
-#JID2=`qsub -W depend=afterok:$JID1 metgrid.pbs`
+qsub -W depend=afterok:$JID1 metgrid.pbs
+
+qrls $JID1
+
 fi
 
 
