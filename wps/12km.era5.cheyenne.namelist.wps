@@ -48,7 +48,7 @@
 /
 
 &metgrid
- fg_name = 'FILE','PRES',
+ fg_name = 'PFILE',
  io_form_metgrid = 2,
  opt_output_from_metgrid_path = '/glade/scratch/gbromley/era5_12km_test/metgrid/',
 /
