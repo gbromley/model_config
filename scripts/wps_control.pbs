@@ -54,6 +54,8 @@ ln -s $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
 ln -s $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
+ln -s $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
+
 
 
 
@@ -76,7 +78,7 @@ if [[ $? == 0 ]]; then
 JID1=`qsub -h rungeogrid.pbs`
 
 
-qsub -W depend=afterok:$JID1 metgrid.pbs
+qsub -W depend=afterok:$JID1 runmetgrid.pbs
 
 qrls $JID1
 
