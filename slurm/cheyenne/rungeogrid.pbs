@@ -10,7 +10,7 @@
 #PBS -l walltime=01:00:00
 
 ### Queue
-#PBS -q regular
+#PBS -q economy
 
 ### Merge output and error files
 #PBS -j oe                    
@@ -18,4 +18,4 @@
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
 #PBS -l select=1:ncpus=36:mpiprocs=36  
 
-mpiexec_mpt ./geogrid.exe
+./geogrid.exe
