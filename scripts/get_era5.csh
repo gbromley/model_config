@@ -8,7 +8,7 @@ set echo
 set LOGINNAME   = $USER
 set TOPDIR      = /glade/scratch/${LOGINNAME}
 # this would be the directory you will download era5 data, create this directory before proceeding
-set WPSDIR      = /glade/scratch/$LOGINNAME/era5/2011-2015/
+set WPSDIR      = /glade/p/univ/umsb0001/era5/2011-2015/
 # do not change this line
 set BINDIR      = /glade/u/home/wrfhelp/bin
 #
