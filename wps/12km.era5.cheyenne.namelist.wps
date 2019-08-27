@@ -2,7 +2,7 @@
  wrf_core = 'ARW',
  max_dom = 1,
  start_date = '2012-10-01_00:00:00',
- end_date   = '2013-02-01_00:00:00',
+ end_date   = '2013-10-01_00:00:00',
  interval_seconds = 10800,
  io_form_geogrid = 2,
  opt_output_from_geogrid_path = '/glade/scratch/gbromley/era5_12km_test/wps/',
