@@ -78,7 +78,9 @@ if [[ $? == 0 ]]; then
 JID1=`qsub -h rungeogrid.pbs`
 
 
-qsub -W depend=afterok:$JID1 runmetgrid.pbs
+JID2='qsub -W depend=afterok:$JID1 runmetgrid.pbs'
+
+qsub -W depend=afterok:JID2 runreal.exe
 
 qrls $JID1
 

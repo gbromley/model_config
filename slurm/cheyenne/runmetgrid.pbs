@@ -22,3 +22,9 @@
 
 
 ./metgrid.exe
+
+### Checking if metgrid finished ok, then create a finished file
+if [[ $? == 0 ]]; then
+touch metgrid_finished
+echo "$(date)" >> metgrid_finished
+fi
