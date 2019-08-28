@@ -17,4 +17,4 @@
 
 ### Script gets 366 days of data at the moment ###
 
-./get_era5.csh 2012100100
+./get_era5.csh 2010100100
