@@ -50,11 +50,11 @@ cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.0.3_intel_dmpar/. $RUNDIR/wrf
 
 rm $RUNDIR/wps/namelist.wps
 
-ln -s $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+ln -sf $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
-ln -s $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
+ln -sf $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
-ln -s $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
+ln -sf $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
 
 
 
@@ -64,7 +64,7 @@ ln -s $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
 cd $RUNDIR/wps
 ### change directory so the data gets to the correct place. ###
 
-ln -s $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
+ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
 $RUNDIR/wps/link_grib.csh $DATADIR/*
 
