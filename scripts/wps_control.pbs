@@ -44,13 +44,25 @@ ncar_pylib
 
 cd $RUNDIR
 
+### Copy over fresh WRF and WPS software
+
 cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
 
 cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.0.3_intel_dmpar/. $RUNDIR/wrf
 
+### remove the example namelist files
+
 rm $RUNDIR/wps/namelist.wps
 
+rm $RUNDIR/wrf/run/namelist.input
+
+### Needs to be updated for each run!!! ###
+
 ln -sf $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+
+ln -sf $CONTROL/wrf/12km_era5/namelist.input $RUNDIR/wrf/run/namelist.input
+
+ln -sf $CONTROL/wrf/12km_era5/12km_era5_iofields.txt $RUNDIR/wrf/run/12km_era5_iofields.txt
 
 ln -sf $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
@@ -78,13 +90,18 @@ if [[ $? == 0 ]]; then
 JID1=`qsub -h rungeogrid.pbs`
 
 
-qsub -W depend=afterok:$JID1 runmetgrid.pbs
+JID2='qsub -W depend=afterok:$JID1 runmetgrid.pbs'
+
 
 qrls $JID1
 
 fi
 
+metgrid_file = metgrid_finished
+if [ -f "$FILE" ]; then
+    ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
 
+fi
 
 
 
