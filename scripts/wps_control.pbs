@@ -25,7 +25,7 @@ export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
 export RUNDIR=/glade/scratch/gbromley/era5_12km_test
 
-export DATADIR=/glade/scratch/gbromley/era5/test_run
+export DATADIR=/glade/p/univ/umsb0001/era5_test2/test_run
 
 
 

@@ -7,7 +7,7 @@
 #PBS -N metgrid_gbromley 
 
 ### Wallclock time
-#PBS -l walltime=08:00:00
+#PBS -l walltime=10:00:00
 
 ### Queue
 #PBS -q economy
