@@ -58,8 +58,8 @@
  time_step_fract_num                 = 0,
  time_step_fract_den                 = 1,
  max_dom                             = 1,
- e_we                                = 290,
- e_sn                                = 200,
+ e_we                                = 225,
+ e_sn                                = 175,
  e_vert                              = 50,
  p_top_requested                     = 5000,
  num_metgrid_levels                  = 61,
@@ -102,6 +102,8 @@
  sst_update                          = 1,
  bucket_mm                           = 1000,
  bucket_j                            = 1e9,
+ usemonalb                           = .true.,
+ rdlai2d                             = .true.,
 
 
 
