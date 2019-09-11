@@ -7,10 +7,10 @@
 #PBS -N real_gbromley
 
 ### Wallclock time
-#PBS -l walltime=04:00:00
+#PBS -l walltime=08:00:00
 
 ### Queue
-#PBS -q regular
+#PBS -q economy
 
 ### Merge output and error files
 #PBS -j oe                    
