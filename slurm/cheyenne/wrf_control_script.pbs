@@ -29,7 +29,8 @@ export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/era5_12km_test
 
 if [ ! -d "$OUTPUT_DIR" ];then
 
-    mkdir OUTPUT_DIR
+    mkdir $OUTPUT_DIR
+    mkdir $OUTPUT_DIR/wrfout/
 fi
 
 
@@ -43,13 +44,16 @@ qrls $JID1
 
 fi
 
-#WRF_FILE = wrf_finished
-#if [ -f "$WRF_FILE" ]; then
-#    cp $RUNDIR/wrf/met_em* $RUNDIR/wrf/run/.
-#
-#fi
+WRF_FILE = wrf_finished
+if [ -f "$WRF_FILE" ]; then
+    rm $RUNDIR/wrf/run/wrfinput_d0*
+    rm $RUNDIR/wrf/run/wrfbdy_d0*
+    rm $RUNDIR/wrf/run/wrflowinp_d0*
+    cp $RUNDIR/wrf/run/wrfout* $OUTPUT_DIR/wrfout/.
 
-#mpiexec_mpt wrf.exe > wrf_run.out
+fi
+
+
 
 
 

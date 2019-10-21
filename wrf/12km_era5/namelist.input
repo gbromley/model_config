@@ -10,7 +10,7 @@
  start_minute                        = 00,
  start_second                        = 00,
  end_year                            = 2013,
- end_month                           = 10,
+ end_month                           = 01,
  end_day                             = 01,
  end_hour                            = 00,
  end_minute                          = 00,
