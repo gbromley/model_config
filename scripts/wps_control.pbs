@@ -97,8 +97,8 @@ qrls $JID1
 
 fi
 
-metgrid_file = metgrid_finished
-if [ -f "$FILE" ]; then
+METGRID_FILE = metgrid_finished
+if [ -f "$METGRID_FILE" ]; then
     ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
 
 fi

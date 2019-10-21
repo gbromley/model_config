@@ -1,16 +1,16 @@
 #!/bin/csh
 
 ### Project name
-#PBS -A xxxxxxxx
+#PBS -A UMSB0001
 
 ### Job name
-#PBS -N wrf 
+#PBS -N wrf_gbromley
 
 ### Wallclock time
-#PBS -l walltime=01:00:00
+#PBS -l walltime=12:00:00
 
 ### Queue
-#PBS -q regular
+#PBS -q economy
 
 ### Merge output and error files
 #PBS -j oe                    
@@ -18,4 +18,9 @@
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
 #PBS -l select=2:ncpus=36:mpiprocs=36  
 
+### Remove the finished file from the previous run
+rm wrf_finished
+
 mpiexec_mpt ./wrf.exe
+
+touch wrf_finished
