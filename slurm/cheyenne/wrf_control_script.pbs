@@ -4,7 +4,7 @@
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N era5_wrf_gbromley
+#PBS -N wrf_control_gbromley
 
 ### Wallclock time
 #PBS -l walltime=12:00:00
@@ -16,7 +16,7 @@
 #PBS -j oe
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=10:ncpus=36:mpiprocs=36
+#PBS -l select=1:ncpus=36:mpiprocs=36
 
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
@@ -37,12 +37,12 @@ fi
 JID1=`qsub -h runreal.pbs`
 
 
-JID2='qsub -W depend=afterok:$JID1 runwrf.pbs'
+JID2=`qsub -W depend=afterok:$JID1 runwrf.pbs`
 
 
 qrls $JID1
 
-fi
+
 
 WRF_FILE = wrf_finished
 if [ -f "$WRF_FILE" ]; then
