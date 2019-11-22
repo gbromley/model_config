@@ -21,18 +21,24 @@
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/era5_12km_test
+export RUNDIR=/glade/scratch/gbromley/era5_12km_test_modland
 
 export DATADIR=/glade/p/univ/umsb0001/era5/test_run
 
-export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/era5_12km_test
+export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/era5_12km_test_modland
 
 if [ ! -d "$OUTPUT_DIR" ];then
 
     mkdir $OUTPUT_DIR
     mkdir $OUTPUT_DIR/wrfout/
 fi
+WRF_FILE = wrf_finished
+if [ -f "$WRF_FILE" ];then
+    rm $RUNDIR/wrf/run/wrfinput_d0*
+    rm $RUNDIR/wrf/run/wrfbdy_d0*
+    rm $RUNDIR/wrf/run/wrflowinp_d0*
 
+fi
 
 JID1=`qsub -h runreal.pbs`
 
@@ -44,14 +50,6 @@ qrls $JID1
 
 
 
-WRF_FILE = wrf_finished
-if [ -f "$WRF_FILE" ]; then
-    rm $RUNDIR/wrf/run/wrfinput_d0*
-    rm $RUNDIR/wrf/run/wrfbdy_d0*
-    rm $RUNDIR/wrf/run/wrflowinp_d0*
-    cp $RUNDIR/wrf/run/wrfout* $OUTPUT_DIR/wrfout/.
-
-fi
 
 
 
