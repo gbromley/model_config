@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N wrf_post_gbromley
+
+### Wallclock time
+#PBS -l walltime=01:00:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=1:ncpus=36:mpiprocs=36
+
+
+export DATA_DIR = /glade/p/univ/umsb0001/model_runs/era5_12km_test/wrfout
+
+if [ ! -d "$DATA_DIR/temp" ];then
+
+    mkdir $DATA_DIR/temp
+
+fi
+
+
+

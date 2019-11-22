@@ -2,8 +2,9 @@
 # Command line script to advance the restart in WRF
 # Author: Gabe Bromley
 ###
-
-from wrf_functions import namelist_functions as nf
+import sys
+sys.path.append('/Users/gbromley/code/model_config/wrf_functions/')
+import namelist_functions as nf
 import sys
 import os
 
@@ -12,9 +13,9 @@ def main():
 
 
 
-    namelist_file = sys.argv[0]
-    interval = sys.argv[1]
-    output_dir = sys.argv[2]
+    namelist_file = sys.argv[1]
+    interval = int(sys.argv[2])
+    output_dir = sys.argv[3]
 
     ### Try and open the namelist to makesure it exists
     try:
@@ -23,8 +24,10 @@ def main():
         print('cannot open', namelist_file)
     else:
         f.close()
+    print("Namelist file: "+namelist_file)
+    print("Destination: "+output_dir)
     ### Run the advance restart code
-    return_code = nf.advance_restart(namelist_file, 8 ,output_dir)
+    return_code = nf.advance_restart(namelist_file, interval,output_dir)
     ### Pass return code from advance_restart to bash
     return return_code
 
