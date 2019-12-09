@@ -8,6 +8,7 @@
 import f90nml
 import datetime as dt
 import os
+import sys
 
 
 def advance_restart(prev_namelist, interval, output_dir):
@@ -34,16 +35,18 @@ def advance_restart(prev_namelist, interval, output_dir):
 
         end_year = namelist['time_control']['end_year']
         end_month = namelist['time_control']['end_month']
-        end_day = namelist['time_control']['end_year']
+        end_day = namelist['time_control']['end_day']
 
 
 
         current_restart = dt.date(start_year,start_month, start_day)
         new_restart = current_restart + dt.timedelta(weeks=interval)
-
+        print(end_day)
+        print(start_day)
         if (new_restart.year >= end_year and new_restart.month >= end_month and new_restart.day >= end_day):
             print("Simulation has ended")
-            return 2
+            sys.exit(2)
+
 
 
 

@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
+def remove_problematic_attrs(ds):
+    for variable in ds.variables.values():
+        if 'coordinates' in variable.attrs:
+            del variable.attrs['coordinates']
+
 input_file = str(sys.argv[1])
 fallow_file = str(sys.argv[2])
 
@@ -29,4 +34,6 @@ rep = xr.where(fallow>20,shdmax-fallow,shdmax)
 
 rep = xr.where(rep<0,0,rep)
 wrfinput['SHDMAX'] = rep
+remove_problematic_attrs(wrfinput)
+wrfinput.to_netcdf(input_file+'_modified')
 wrfinput.close()
