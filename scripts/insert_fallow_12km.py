@@ -33,6 +33,7 @@ shdmax = wrfinput['SHDMAX']
 rep = xr.where(fallow>20,shdmax-fallow,shdmax)
 
 rep = xr.where(rep<0,5.0,rep)
+rep = rep.transpose('Time', 'south_north', 'west_east',transpose_coords=True )
 wrfinput['SHDMAX'] = rep
 remove_problematic_attrs(wrfinput)
 wrfinput.to_netcdf(input_file+'_modified')
