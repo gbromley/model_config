@@ -91,7 +91,7 @@
  smooth_option                       = 0,
  /
  &noah_mp
- dveg                                = 2,
+ dveg                                = 4,
  /
  &physics
  physics_suite                       = 'CONUS',
