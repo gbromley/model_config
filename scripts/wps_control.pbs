@@ -48,7 +48,7 @@ cd $RUNDIR
 
 cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
 
-cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.1.2_intel_dmpar/. $RUNDIR/wrf
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.1.4_intel_dmpar/. $RUNDIR/wrf
 
 ### remove the example namelist files
 
@@ -85,15 +85,13 @@ $RUNDIR/wps/ungrib.exe
 ### Run if program runs successfully
 if [[ $? == 0 ]]; then
 
+    JID1=`qsub -h rungeogrid.pbs`
 
 
-JID1=`qsub -h rungeogrid.pbs`
+    JID2='qsub -W depend=afterok:$JID1 runmetgrid.pbs'
 
 
-JID2='qsub -W depend=afterok:$JID1 runmetgrid.pbs'
-
-
-qrls $JID1
+    qrls $JID1
 
 fi
 
