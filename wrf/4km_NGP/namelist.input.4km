@@ -108,11 +108,15 @@
  sf_sfclay_physics                   = 1,
  ra_sw_physics                       = 4,
  ra_lw_physics                       = 4,
- mp_physics                          = 8,
+ mp_physics                          = 16,
  cu_physics                          = 0,
  shcu_physics                        = 0,
  isfflx                              = 1,
  sst_update                          = 1,
+ sst_skin                            = 1,
+ tmn_update                          = 1,
+ rdlai2d                             = .true.,
+ usemonalb                           = .true.,
  do_radar_ref                        = 1,
 
 
@@ -121,6 +125,7 @@
  &afwa
  afwa_diag_opt                       = 1,
  afwa_severe_opt                     = 1,
+ afwa_buoy_opt                   = 1,
  /
  &fdda
  /
