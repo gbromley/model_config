@@ -43,7 +43,7 @@
  io_form_auxhist5                    = 2,
  frames_per_auxhist5                 = 8,
  
- iofields_filename                   = "12km_era5_iofields.txt",
+ iofields_filename                   = "4km_era5_iofields.txt",
  ignore_iofields_warning             = .true.,
  /
  &diags
