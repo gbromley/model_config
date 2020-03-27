@@ -25,7 +25,7 @@ export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
 export RUNDIR=/glade/scratch/gbromley/2011_control
 
-export DATADIR=/glade/p/univ/umsb0001/era5_test2/test_run
+export DATADIR=/glade/p/univ/umsb0001/era5/2011-2015
 
 
 
@@ -58,7 +58,7 @@ rm $RUNDIR/wrf/run/namelist.input
 
 ### Needs to be updated for each run!!! ###
 
-ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.input
+ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
 ln -sf $CONTROL/wrf/4km_NGP/4km.03212020.namelist.input $RUNDIR/wrf/run/namelist.input
 
@@ -80,12 +80,13 @@ cd $RUNDIR/wps
 
 ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
-$RUNDIR/wps/link_grib.csh $RUNDIR/WPS/.
+$RUNDIR/wps/link_grib.csh $DATADIR/
 
 $RUNDIR/wps/ungrib.exe
 
 ### Run if program runs successfully
 if [[ $? == 0 ]]; then
+    echo "In the geogrid/metgrid loop"
 
     JID1=`qsub -h rungeogrid.pbs`
 
@@ -99,6 +100,7 @@ fi
 
 METGRID_FILE=$RUNDIR/wps/metgrid_finished
 if [ -f "$METGRID_FILE" ]; then
+    echo "In the met_em loop, moving files"
     ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
 
     ln -sf $RUNDIR/wps/met_em* /glade/p/univ/umsb0001/4km_metgrid_output/
