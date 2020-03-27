@@ -40,7 +40,7 @@ fi
 
 module load python/3.6.8
 
-ncar_pylib
+### ncar_pylib
 
 cd $RUNDIR
 
@@ -58,11 +58,11 @@ rm $RUNDIR/wrf/run/namelist.input
 
 ### Needs to be updated for each run!!! ###
 
-ln -sf $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/4km.cheyenne.namelist.wps
+ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.input
 
-ln -sf $CONTROL/wrf/12km_era5/namelist.input $RUNDIR/wrf/run/4km.03212020.namelist.input
+ln -sf $CONTROL/wrf/4km_NGP/4km.03212020.namelist.input $RUNDIR/wrf/run/namelist.input
 
-ln -sf $CONTROL/wrf/12km_era5/12km_era5_iofields.txt $RUNDIR/wrf/run/4km_era5_iofields.txt
+ln -sf $CONTROL/wrf/4km_NGP/4km_era5_iofields.txt $RUNDIR/wrf/run/4km_era5_iofields.txt
 
 ln -sf $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
@@ -97,7 +97,7 @@ if [[ $? == 0 ]]; then
 
 fi
 
-METGRID_FILE = metgrid_finished
+METGRID_FILE=$RUNDIR/wps/metgrid_finished
 if [ -f "$METGRID_FILE" ]; then
     ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
 
