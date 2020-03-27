@@ -1,11 +1,11 @@
 &share
  wrf_core = 'ARW',
  max_dom = 2,
- start_date = '2013-05-01_00:00:00',
- end_date   = '2013-07-01_00:00:00',
+ start_date = '2011-10-01_00:00:00',
+ end_date   = '2012-10-01_00:00:00',
  interval_seconds = 21600,
  io_form_geogrid = 2,
- opt_output_from_geogrid_path = '/glade/scratch/gbromley/era5_4km_test/geogrid/',
+ opt_output_from_geogrid_path = '/glade/p/univ/umsb0001/4km_metgrid_output/2011/geogrid/',
 /
 
 &geogrid
@@ -13,8 +13,8 @@
  parent_grid_ratio =   1, 
  i_parent_start    =   1, 
  j_parent_start    =   1, 
- e_we              =  700,
- e_sn              =  500,
+ e_we              =  796,
+ e_sn              =  496,
  !
  !!!!!!!!!!!!!!!!!!!!!!!!!!!! IMPORTANT NOTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
  ! The default datasets used to produce the HGT_M, GREENFRAC,
@@ -48,7 +48,7 @@
 /
 
 &metgrid
- fg_name = 'FILE','PRES',
+ fg_name = 'FILE',
  io_form_metgrid = 2,
- opt_output_from_metgrid_path = '/glade/scratch/gbromley/era5_4km_test/metgrid/',
+ opt_output_from_metgrid_path = '/glade/p/univ/umsb0001/4km_metgrid_output/2011/',
 /

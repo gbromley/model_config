@@ -23,7 +23,7 @@
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/era5_12km_test
+export RUNDIR=/glade/scratch/gbromley/2011_control
 
 export DATADIR=/glade/p/univ/umsb0001/era5_test2/test_run
 
@@ -58,15 +58,17 @@ rm $RUNDIR/wrf/run/namelist.input
 
 ### Needs to be updated for each run!!! ###
 
-ln -sf $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+ln -sf $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/4km.cheyenne.namelist.wps
 
-ln -sf $CONTROL/wrf/12km_era5/namelist.input $RUNDIR/wrf/run/namelist.input
+ln -sf $CONTROL/wrf/12km_era5/namelist.input $RUNDIR/wrf/run/4km.03212020.namelist.input
 
-ln -sf $CONTROL/wrf/12km_era5/12km_era5_iofields.txt $RUNDIR/wrf/run/12km_era5_iofields.txt
+ln -sf $CONTROL/wrf/12km_era5/12km_era5_iofields.txt $RUNDIR/wrf/run/4km_era5_iofields.txt
 
 ln -sf $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
 ln -sf $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
+
+ln -sf $CONTROL/scripts/insert_fallow.py $RUNDIR/wrf/run/insert_fallow.py
 
 
 
@@ -78,7 +80,7 @@ cd $RUNDIR/wps
 
 ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
-$RUNDIR/wps/link_grib.csh $DATADIR/*
+$RUNDIR/wps/link_grib.csh $RUNDIR/WPS/.
 
 $RUNDIR/wps/ungrib.exe
 
@@ -98,6 +100,8 @@ fi
 METGRID_FILE = metgrid_finished
 if [ -f "$METGRID_FILE" ]; then
     ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
+
+    ln -sf $RUNDIR/wps/met_em* /glade/p/univ/umsb0001/4km_metgrid_output/
 
 fi
 
