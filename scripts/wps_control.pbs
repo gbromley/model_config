@@ -89,11 +89,11 @@ $RUNDIR/wps/link_grib.csh $DATADIR/
 ### Run if program runs successfully
 
 echo "In the geogrid/metgrid loop"
-JID1='qsub -h runungrib.pbs'
-JID2='qsub -W depend=afterok:$JID1 rungeogrid.pbs'
+JID1=`qsub -h runungrib.pbs`
+JID2=`qsub -W depend=afterok:$JID1 rungeogrid.pbs`
 
 
-JID3='qsub -W depend=afterok:$JID2 runmetgrid.pbs'
+JID3=`qsub -W depend=afterok:$JID2 runmetgrid.pbs`
 
 
 qrls $JID1
