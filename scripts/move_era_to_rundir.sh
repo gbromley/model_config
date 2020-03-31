@@ -54,10 +54,10 @@ set file_time_s = ${current_cen}${current_year}${current_month}0100
 set file_time_e = ${current_cen}${current_year}${current_month}${last_day_of_month}23
 set data_type_sfc = e5.oper.an.sfc.128
 #
-ln -sf $DATA_DIR/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_\*.grb
+ln -sf $DATA_DIR/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
 ln -sf $DATA_DIR/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_\*.grb
 ln -sf $DATA_DIR/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_\*.grb
 ln -sf $DATA_DIR/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_\*.grb
