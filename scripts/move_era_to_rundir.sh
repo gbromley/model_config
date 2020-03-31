@@ -16,7 +16,7 @@ set RUNDIR=$2
 cd $RUNDIR
 #
 
-DATA_DIR=/glade/p/univ/umsb0001/era5/2011-2015/
+set DATA_DIR=/glade/p/univ/umsb0001/era5/2011-2015
 #
 set last_day_of_month = 31
 set num_days = 365
