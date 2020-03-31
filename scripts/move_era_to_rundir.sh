@@ -1,11 +1,6 @@
-#!/usr/bin/env bash
-
-
-
+#!/bin/csh
 
 set BINDIR = /glade/u/home/wrfhelp/bin
-
-
 
 if ( ${#argv} > 0 ) then
   echo 'Calculating initialization time from input date'
