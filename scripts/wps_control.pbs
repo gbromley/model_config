@@ -27,7 +27,7 @@ export RUNDIR=/glade/scratch/gbromley/2011_control
 
 export DATADIR=/glade/p/univ/umsb0001/era5/2011-2015
 
-
+export START_DATE=2010100100
 
 
 
@@ -73,7 +73,7 @@ ln -sf $CONTROL/slurm/cheyenne/runungrib.pbs $RUNDIR/wps/runungrib.pbs
 ln -sf $CONTROL/scripts/insert_fallow.py $RUNDIR/wrf/run/insert_fallow.py
 
 
-
+$CONTROL/scripts/move_era_to_rundir.sh $START_DATE $RUNDIR/grib
 
 #TODO: See if geogrid is better run in this script or in a seperate one
 
@@ -82,7 +82,7 @@ cd $RUNDIR/wps
 
 ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
-$RUNDIR/wps/link_grib.csh $DATADIR/
+$RUNDIR/wps/link_grib.csh $RUNDIR/grib
 
 ###$RUNDIR/wps/ungrib.exe
 
