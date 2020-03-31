@@ -55,23 +55,23 @@ set file_time_e = ${current_cen}${current_year}${current_month}${last_day_of_mon
 set data_type_sfc = e5.oper.an.sfc.128
 #
 ln -sf $DATA_DIR/${data_type_sfc}_034_sstk.${data_type_sc}.${file_time_s}_* $RUNDIR/.
-ln -sf $DATA_DIR/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
-ln -sf $DATA_DIR/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
-ln -sf $DATA_DIR/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/.
-ln -sf $DATA_DIR/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_183_stl3.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_183_stl3.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_236_stl4.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_236_stl4.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_165_10u.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_165_10u.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_166_10v.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_166_10v.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_167_2t.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_167_2t.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_168_2d.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_168_2d.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_134_sp.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_134_sp.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_151_msl.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_151_msl.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_235_skt.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_235_skt.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_033_rsn.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_033_rsn.${data_type_sc}.${file_time_s}_\*.grb
-ln -sf $DATA_DIR/${data_type_sfc}_141_sd.${data_type_sc}.${file_time_s}_\*.grb $RUNDIR/${data_type_sfc}_141_sd.${data_type_sc}.${file_time_s}_\*.grb
+ln -sf $DATA_DIR/${data_type_sfc}_039_swvl1.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_040_swvl2.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_041_swvl3.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_042_swvl4.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_139_stl1.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_170_stl2.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_183_stl3.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_236_stl4.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_165_10u.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_166_10v.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_167_2t.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_168_2d.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_134_sp.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_151_msl.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_235_skt.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_033_rsn.${data_type_sc}.${file_time_s}_* $RUNDIR/.
+ln -sf $DATA_DIR/${data_type_sfc}_141_sd.${data_type_sc}.${file_time_s}_* $RUNDIR/.
 #
 # calculate date for next time
 #
