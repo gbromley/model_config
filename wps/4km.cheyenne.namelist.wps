@@ -48,7 +48,7 @@
 /
 
 &metgrid
- fg_name = 'FILE',''PFILE'
+ fg_name = 'FILE'
  io_form_metgrid = 2,
  opt_output_from_metgrid_path = '/glade/p/univ/umsb0001/4km_metgrid_output/2011/',
 /
