@@ -82,7 +82,7 @@ cd $RUNDIR/wps
 
 ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
 
-$RUNDIR/wps/link_grib.csh $RUNDIR/grib
+$RUNDIR/wps/link_grib.csh $RUNDIR/grib/
 
 ###$RUNDIR/wps/ungrib.exe
 
