@@ -19,7 +19,7 @@ cd $RUNDIR
 set DATA_DIR=/glade/p/univ/umsb0001/era5/2011-2015
 #
 set last_day_of_month = 31
-set num_days = 365
+set num_days = 32
 
 set DataTime = ${current_cen}${current_year}${current_month}${current_day}${current_hour}
 #
