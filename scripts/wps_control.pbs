@@ -33,6 +33,7 @@ export START_DATE=2010100100
 
 if [ ! -d "$RUNDIR" ];then
     mkdir -p $RUNDIR
+    mkdir -p $RUNDIR/grib
     mkdir -p $RUNDIR/wps
     mkdir -p $RUNDIR/metgrid
     mkdir -p $RUNDIR/wrf
