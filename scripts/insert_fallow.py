@@ -30,7 +30,7 @@ except Exception:
 fallow = fallow_data['Band1']*100
 shdmax = wrfinput['SHDMAX']
 
-rep = xr.where(fallow>20,shdmax-fallow,shdmax)
+rep = xr.where(fallow>5,fallow,shdmax)
 
 rep = xr.where(rep<0,5.0,rep)
 rep = rep.transpose('Time', 'south_north', 'west_east',transpose_coords=True )
