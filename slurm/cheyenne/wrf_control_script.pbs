@@ -21,11 +21,10 @@
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/era5_12km_test_modland
+export RUNDIR=/glade/scratch/gbromley/2011_control
 
-export DATADIR=/glade/p/univ/umsb0001/era5/test_run
 
-export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/era5_12km_test_modland
+export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/2011_control
 
 if [ ! -d "$OUTPUT_DIR" ];then
 
