@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash -l
 
 ### Project name
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N wrf_control_gbromley
+#PBS -N control__wrf_gbromley
 
 ### Wallclock time
 #PBS -l walltime=12:00:00
@@ -24,14 +24,14 @@ export CONTROL=/glade/u/home/gbromley/config_files/model_config
 export RUNDIR=/glade/scratch/gbromley/2011_control
 
 
-export OUTPUT_DIR = /glade/p/univ/umsb0001/model_runs/2011_control
+export OUTPUT_DIR=/glade/p/univ/umsb0001/model_runs/2011_control
 
 if [ ! -d "$OUTPUT_DIR" ];then
 
     mkdir $OUTPUT_DIR
     mkdir $OUTPUT_DIR/wrfout/
 fi
-WRF_FILE = wrf_finished
+export WRF_FILE=wrf_finished
 if [ -f "$WRF_FILE" ];then
     rm $RUNDIR/wrf/run/wrfinput_d0*
     rm $RUNDIR/wrf/run/wrfbdy_d0*
