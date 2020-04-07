@@ -16,11 +16,24 @@
 #PBS -j oe                    
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
-#PBS -l select=4:ncpus=36:mpiprocs=36  
+#PBS -l select=10:ncpus=36:mpiprocs=36
 
 ### Remove the finished file from the previous run
 rm wrf_finished
 
+module load python/3.6.8
+module load ncarenv
+
+### inserting fallow
+mv wrfinput_d01 wrfinput_backup
+python3 insert_fallow.py wrfinput_backup 2011_fallow_4km.nc
+
+export wrfinput_fallow=wrfinput_backup_modified
+
+if [ -f "$wrfinput_fallow" ]; then
+    mv $wrfinput_fallow wrfinput_d01
+fi
+### done inserting fallow
 mpiexec_mpt ./wrf.exe
 
 touch wrf_finished
