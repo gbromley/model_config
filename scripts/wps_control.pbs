@@ -79,7 +79,7 @@ ln -sf $CONTROL/slurm/cheyenne/runwrf.pbs $RUNDIR/wrf/run/runwrf.pbs
 
 ln -sf $CONTROL/slurm/cheyenne/wrf_control_script.pbs $RUNDIR/wrf/run/wrf_control_sctipt.pbs
 
-
+cp /glade/u/home/gbromley/*wrfgrid.nc $RUNDIR/wrf/run/.
 
 $CONTROL/scripts/move_era_to_rundir.sh $START_DATE $RUNDIR/grib/
 
@@ -111,9 +111,9 @@ qrls $JID1
 METGRID_FILE=$RUNDIR/wps/metgrid_finished
 if [ -f "$METGRID_FILE" ]; then
     echo "In the met_em loop, moving files"
-    ln –sf $RUNDIR/wps/met_em* $RUNDIR/wrf/run/.
+    ln –sf /glade/p/univ/umsb0001/4km_metgrid_output/2011/met_em* $RUNDIR/wrf/run/.
 
-    ln -sf $RUNDIR/wps/met_em* /glade/p/univ/umsb0001/4km_metgrid_output/
+    cp $RUNDIR/wps/met_em* /glade/p/univ/umsb0001/4km_metgrid_output/2011/.
 
 fi
 
