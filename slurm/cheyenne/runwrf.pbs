@@ -23,16 +23,19 @@ rm wrf_finished
 
 module load python/3.6.8
 module load ncarenv
+ncar_pylib npl_gbromley
 
 ### inserting fallow
-mv wrfinput_d01 wrfinput_backup
-python3 insert_fallow.py wrfinput_backup 2011_fallow_4km.nc
+#mv wrfinput_d01 wrfinput_backup
+python3 insert_fallow.py wrfinput_d01 fallow_2011_wrfgrid.nc
 
-export wrfinput_fallow=wrfinput_backup_modified
+mv wrfinput_d01 wrfinput_backup 
+mv wrfinput_d01_modified wrfinput_d01
+#export wrfinput_fallow=wrfinput_backup_modified
 
-if [ -f "$wrfinput_fallow" ]; then
-    mv $wrfinput_fallow wrfinput_d01
-fi
+#if [ -f "$wrfinput_fallow" ]; then
+#    mv $wrfinput_fallow wrfinput_d01
+#fi
 ### done inserting fallow
 mpiexec_mpt ./wrf.exe
 
