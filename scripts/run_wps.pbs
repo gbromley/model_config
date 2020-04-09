@@ -1,0 +1,76 @@
+#!/bin/bash -l
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N run_wps_gbromley
+
+### Wallclock time
+#PBS -l walltime=12:00:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+#TODO: change this to reflect run directory
+#PBS -o run_wps_gbromley.out
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=1:ncpus=36:mpiprocs=36
+
+
+export CONTROL=/glade/u/home/gbromley/config_files/model_config
+
+export RUNDIR=/glade/scratch/gbromley/2011_control
+
+export DATADIR=/glade/p/univ/umsb0001/era5/2011-2015
+
+export START_DATE=2010110100
+
+
+cd $RUNDIR
+
+
+### remove the example namelist files
+
+
+### Needs to be updated for each run!!! ###
+
+ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+
+rm $RUNDIR/grib/*
+
+$CONTROL/scripts/move_era_to_rundir.sh $START_DATE $RUNDIR/grib/
+
+#TODO: See if geogrid is better run in this script or in a seperate one
+
+cd $RUNDIR/wps
+### change directory so the data gets to the correct place. ###
+
+ln -sf $RUNDIR/wps/ungrib/Variable_Tables/Vtable.ERA-interim.pl $RUNDIR/wps/Vtable
+
+$RUNDIR/wps/link_grib.csh $RUNDIR/grib/
+
+###$RUNDIR/wps/ungrib.exe
+
+### Run if program runs successfully
+
+echo "In the geogrid/metgrid loop"
+JID1=`qsub -h runungrib.pbs`
+JID2=`qsub -W depend=afterok:$JID1 rungeogrid.pbs`
+
+
+JID3=`qsub -W depend=afterok:$JID2 runmetgrid.pbs`
+
+
+qrls $JID1
+
+
+
+
+
+
+
+
