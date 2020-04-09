@@ -39,6 +39,8 @@ if [ -f "$WRF_FILE" ];then
 
 fi
 
+ln -sf /glade/p/univ/umsb0001/4km_metgrid_output/2011/* /glade/scratch/gbromley/2011_control/wrf/run/.
+
 JID1=`qsub -h runreal.pbs`
 
 
