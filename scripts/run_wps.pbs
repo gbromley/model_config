@@ -40,7 +40,10 @@ cd $RUNDIR
 
 ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
+#remove previous data
 rm $RUNDIR/grib/*
+rm $RUNDIR/wps/FILE*
+rm $RUNDIR/wps/GRIBFILE*
 
 $CONTROL/scripts/move_era_to_rundir.sh $START_DATE $RUNDIR/grib/
 
