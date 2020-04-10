@@ -79,6 +79,12 @@ ln -sf $CONTROL/slurm/cheyenne/runwrf.pbs $RUNDIR/wrf/run/runwrf.pbs
 
 ln -sf $CONTROL/slurm/cheyenne/wrf_control_script.pbs $RUNDIR/wrf/run/wrf_control_sctipt.pbs
 
+ln -s $CONTROL/scripts/wrfout_move.pbs $RUNDIR/wrf/run/.
+
+ln -s $CONTROL/wrf/4km_NGP/tslist_4km $RUNDIR/wrf/run/tslist
+
+
+
 cp /glade/u/home/gbromley/*wrfgrid.nc $RUNDIR/wrf/run/.
 
 $CONTROL/scripts/move_era_to_rundir.sh $START_DATE $RUNDIR/grib/
