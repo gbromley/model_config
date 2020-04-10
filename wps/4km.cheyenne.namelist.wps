@@ -2,7 +2,7 @@
  wrf_core = 'ARW',
  max_dom = 1,
  start_date = '2010-12-01_00:00:00',
- end_date   = '2011-01-01_00:00:00',
+ end_date   = '2011-02-01_00:00:00',
  interval_seconds = 10800,
  io_form_geogrid = 2,
 /
