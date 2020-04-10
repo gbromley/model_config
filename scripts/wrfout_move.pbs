@@ -4,10 +4,10 @@
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N WPS_gbromley
+#PBS -N move_wrfout_gbromley
 
 ### Wallclock time
-#PBS -l walltime=12:00:00
+#PBS -l walltime=1:00:00
 
 ### Queue
 #PBS -q economy
@@ -15,7 +15,7 @@
 ### Merge output and error files
 #PBS -j oe
 #TODO: change this to reflect run directory
-#PBS -o WPS_gbromley.out
+#PBS -o move_wrfout_gbromley.out
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
 #PBS -l select=1:ncpus=36:mpiprocs=36
