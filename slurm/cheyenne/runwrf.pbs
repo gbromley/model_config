@@ -18,9 +18,25 @@
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
 #PBS -l select=10:ncpus=36:mpiprocs=36
 
-### Remove the finished file from the previous run
-rm wrf_finished
+### Remove output from the previous run
+mv -f $RUNDIR/wrf/run/wrfout* OUTPUT_DIR/wrfout/.
 
+mv -f $RUNDIR/wrf/run/sfc* OUTPUT_DIR/sfc/.
+
+mv -f $RUNDIR/wrf/run/press* OUTPUT_DIR/press/.
+
+mv -f $RUNDIR/wrf/run/radar* OUTPUT_DIR/radar/.
+
+mv -f $RUNDIR/wrf/run/*.TS OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.UU OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.VV OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.WW OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.TH OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.PH OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.QV OUTPUT_DIR/timeseries/.
+mv -f $RUNDIR/wrf/run/*.PR OUTPUT_DIR/timeseries/.
+
+### load python libraries needed for fallow input
 module load python/3.6.8
 module load ncarenv
 ncar_pylib npl_gbromley

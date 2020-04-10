@@ -18,4 +18,9 @@
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes 
 #PBS -l select=2:ncpus=36:mpiprocs=36  
 
+rm wrfinput_d01
+rm wrfbdy_d01
+rm wrflowinp_d01
+rm wrfinput_backup
+
 mpiexec_mpt ./real.exe
