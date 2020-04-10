@@ -20,7 +20,7 @@
  history_interval                    = 180,
  frames_per_outfile                  = 8,
  restart                             = .true.,
- write_hist_at_0h_rst		     = .true.,
+ write_hist_at_0h_rst		         = .true.,
  restart_interval                    = 30240,
  io_form_history                     = 2,
  io_form_restart                     = 2,
@@ -50,6 +50,11 @@
  p_lev_diags                        = 1,
  num_press_levels                   = 11,
  press_levels = 100000,95000,90000,85000,80000,70000,60000,50000,40000,30000,20000,
+ /
+ &afwa
+ afwa_diag_opt =  1,
+ afwa_cloud_opt = 1,
+ afwa_buoy_opt = 1,
  /
 
  &domains
