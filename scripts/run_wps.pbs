@@ -27,7 +27,7 @@ export RUNDIR=/glade/scratch/gbromley/2011_control
 
 export DATADIR=/glade/p/univ/umsb0001/era5/2011-2015
 
-export START_DATE=2010120100
+export START_DATE=2011020100
 
 
 cd $RUNDIR
