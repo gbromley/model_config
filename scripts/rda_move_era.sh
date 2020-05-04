@@ -28,8 +28,8 @@ set h_interval = 24
 set numf = 1
 #
 # obtain the time-ivariant file: terrain height and land mask
-ln -s $DATA_DIR/e5.oper.invariant.128_129_z.regn320sc.2016010100_2016010100.grb $RUNDIR/e5.oper.invariant.128_129_z.regn320sc.2016010100_2016010100.grb
-ln -s $DATA_DIR/e5.oper.invariant.128_172_lsm.regn320sc.2016010100_2016010100.grb $RUNDIR/e5.oper.invariant.128_172_lsm.regn320sc.2016010100_2016010100.grb
+ln -s $DATA_DIR/e5.oper.invariant/197901/e5.oper.invariant.128_129_z.ll025sc.1979010100_1979010100.grb $RUNDIR/e5.oper.invariant.128_129_z.ll025sc.1979010100_1979010100.grb
+ln -s $DATA_DIR/e5.oper.invariant/197901/e5.oper.invariant.128_172_lsm.ll025sc.1979010100_1979010100.grb $RUNDIR/e5.oper.invariant.128_172_lsm.ll025sc.1979010100_1979010100.grb
 
 #
 while ( $numf < $num_days_plus1 )
