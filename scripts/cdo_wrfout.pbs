@@ -1,0 +1,29 @@
+#!/bin/bash -l
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N cdo_gbromley
+
+### Wallclock time
+#PBS -l walltime=6:00:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+#TODO: change this to reflect run directory
+#PBS -o WPS_gbromley.out
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=1:ncpus=8:ompthreads=8
+
+module load cdo
+
+export DATADIR=/glade/p/univ/umsb0001/model_runs/2011_control/wrfout
+
+cd $DATA_DIR
+
+cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout* control_2011_diagnostics.nc
