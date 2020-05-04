@@ -22,7 +22,7 @@
 
 module load cdo
 
-export DATADIR=/glade/p/univ/umsb0001/model_runs/2011_control/wrfout
+export DATA_DIR=/glade/p/univ/umsb0001/model_runs/2011_control/wrfout
 
 cd $DATA_DIR
 
