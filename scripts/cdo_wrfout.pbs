@@ -15,7 +15,7 @@
 ### Merge output and error files
 #PBS -j oe
 #TODO: change this to reflect run directory
-#PBS -o WPS_gbromley.out
+#PBS -o cdo_gbromley.out
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
 #PBS -l select=1:ncpus=8:ompthreads=8
