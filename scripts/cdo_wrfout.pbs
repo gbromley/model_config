@@ -22,8 +22,21 @@
 
 module load cdo
 
-export DATA_DIR=/glade/p/univ/umsb0001/model_runs/2011_control/wrfout
+export SIMULATION_NAME='2011_control'
+
+export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/wrfout
 
 cd $DATA_DIR
 
-cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* control_2011_diagnostics.nc
+cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* ${SIMULATION_NAME}_temp.nc
+
+cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_temp.nc ${SIMULATION_NAME}_full.nc
+
+cdo monmean ${SIMULATION_NAME}_full.nc ${SIMULATION_NAME}_monthly.nc
+
+cdo -P 8 remapbil,r720x360 ${SIMULATION_NAME}_monthly.nc ${SIMULATION_NAME}_monthly_crugrid.nc
+
+#ext_e = -92
+#ext_w = -115
+#ext_n = 55
+#ext_s = 40
