@@ -34,7 +34,7 @@ cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_temp.nc ${SIMULATION_NAME}_f
 
 cdo monmean ${SIMULATION_NAME}_full.nc ${SIMULATION_NAME}_monthly.nc
 
-cdo -P 8 remapbil,r720x360 ${SIMULATION_NAME}_monthly.nc ${SIMULATION_NAME}_monthly_crugrid.nc
+cdo -P 8 remapbil,global_0.5 ${SIMULATION_NAME}_monthly.nc ${SIMULATION_NAME}_monthly_crugrid.nc
 
 #ext_e = -92
 #ext_w = -115
