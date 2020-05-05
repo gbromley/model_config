@@ -26,4 +26,4 @@ export DATA_DIR=/glade/p/univ/umsb0001/model_runs/2011_control/wrfout
 
 cd $DATA_DIR
 
-cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout* control_2011_diagnostics.nc
+cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* control_2011_diagnostics.nc
