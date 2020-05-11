@@ -28,13 +28,22 @@ export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/wrfout
 
 cd $DATA_DIR
 
-cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* ${SIMULATION_NAME}_temp.nc
+cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* ${SIMULATION_NAME}_temporary.nc
 
 cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_temp.nc ${SIMULATION_NAME}_full.nc
 
 cdo monmean ${SIMULATION_NAME}_full.nc ${SIMULATION_NAME}_monthly.nc
 
 cdo -P 8 remapbil,global_.5 ${SIMULATION_NAME}_monthly.nc ${SIMULATION_NAME}_monthly_crugrid.nc
+
+### Daily averaged fluxes
+cdo -P select,name=LH,HFX wrfout_d01* ${SIMULATION_NAME}_flux_temporary.nc
+
+cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_flux_temporary.nc ${SIMULATION_NAME}_flux_full.nc
+
+
+
+
 
 #ext_e = -92
 #ext_w = -115

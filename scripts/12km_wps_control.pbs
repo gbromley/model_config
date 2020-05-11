@@ -23,7 +23,7 @@
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/2011_control
+export RUNDIR=/glade/scratch/gbromley/12km_verification
 
 export DATADIR=/glade/p/univ/umsb0001/era5/2011-2015
 
@@ -59,27 +59,27 @@ rm $RUNDIR/wrf/run/namelist.input
 
 ### Needs to be updated for each run!!! ###
 
-ln -sf $CONTROL/wps/4km.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
+cp -f $CONTROL/wps/12km.era5.cheyenne.namelist.wps $RUNDIR/wps/namelist.wps
 
-ln -sf $CONTROL/wrf/4km_NGP/4km.03212020.namelist.input $RUNDIR/wrf/run/namelist.input
+cp -f $CONTROL/wrf/12km_era5/namelist.input $RUNDIR/wrf/run/namelist.input
 
-ln -sf $CONTROL/wrf/4km_NGP/4km_era5_iofields.txt $RUNDIR/wrf/run/4km_era5_iofields.txt
+cp -f $CONTROL/wrf/12km_era5/12km_era5_iofields.txt $RUNDIR/wrf/run/12km_era5_iofields.txt
 
-ln -sf $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
+cp -f $CONTROL/slurm/cheyenne/rungeogrid.pbs $RUNDIR/wps/rungeogrid.pbs
 
-ln -sf $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
+cp -f $CONTROL/slurm/cheyenne/runmetgrid.pbs $RUNDIR/wps/runmetgrid.pbs
 
-ln -sf $CONTROL/slurm/cheyenne/runungrib.pbs $RUNDIR/wps/runungrib.pbs
+cp -f $CONTROL/slurm/cheyenne/runungrib.pbs $RUNDIR/wps/runungrib.pbs
 
-ln -sf $CONTROL/scripts/insert_fallow.py $RUNDIR/wrf/run/insert_fallow.py
+cp -f $CONTROL/scripts/insert_fallow.py $RUNDIR/wrf/run/insert_fallow.py
 
-ln -sf $CONTROL/slurm/cheyenne/runreal.pbs $RUNDIR/wrf/run/runreal.pbs
+cp -f $CONTROL/slurm/cheyenne/runreal.pbs $RUNDIR/wrf/run/runreal.pbs
 
-ln -sf $CONTROL/slurm/cheyenne/runwrf.pbs $RUNDIR/wrf/run/runwrf.pbs
+cp -f $CONTROL/slurm/cheyenne/runwrf.pbs $RUNDIR/wrf/run/runwrf.pbs
 
-ln -sf $CONTROL/slurm/cheyenne/wrf_control_script.pbs $RUNDIR/wrf/run/wrf_control_sctipt.pbs
+cp -f $CONTROL/slurm/cheyenne/wrf_control_script.pbs $RUNDIR/wrf/run/wrf_control_script.pbs
 
-ln -s $CONTROL/scripts/wrfout_move.pbs $RUNDIR/wrf/run/.
+cp -f $CONTROL/scripts/wrfout_move.pbs $RUNDIR/wrf/run/.
 
 
 
@@ -111,18 +111,6 @@ JID3=`qsub -W depend=afterok:$JID2 runmetgrid.pbs`
 
 
 qrls $JID1
-
-
-
-METGRID_FILE=$RUNDIR/wps/metgrid_finished
-if [ -f "$METGRID_FILE" ]; then
-    echo "In the met_em loop, moving files"
-    ln –sf /glade/p/univ/umsb0001/4km_metgrid_output/2011/met_em* $RUNDIR/wrf/run/.
-
-    cp $RUNDIR/wps/met_em* /glade/p/univ/umsb0001/4km_metgrid_output/2011/.
-
-fi
-
 
 
 
