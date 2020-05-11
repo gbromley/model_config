@@ -3,13 +3,13 @@
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
- start_year                          = 2013,
- start_month                         = 05,
- start_day                           = 27,
+ start_year                          = 2010,
+ start_month                         = 10,
+ start_day                           = 01,
  start_hour                          = 00,
  start_minute                        = 00,
  start_second                        = 00,
- end_year                            = 2013,
+ end_year                            = 2011,
  end_month                           = 10,
  end_day                             = 01,
  end_hour                            = 00,
@@ -20,7 +20,7 @@
  history_interval                    = 180,
  frames_per_outfile                  = 8,
  restart                             = .true.,
- write_hist_at_0h_rst		     = .true.,
+ write_hist_at_0h_rst		         = .true.,
  restart_interval                    = 20160,
  io_form_history                     = 2,
  io_form_restart                     = 2,
@@ -33,13 +33,13 @@
  auxhist2_outname                    = "radar_d<domain>_<date>.nc",
  io_form_auxhist2                    = 2,
  auxhist2_interval                   = 5,
- frames_per_auxhist2		     = 288,
+ frames_per_auxhist2		         = 288,
  auxhist23_outname                   = "press_d<domain>_<date>.nc",
  auxhist23_interval                  = 180,
  io_form_auxhist23                   = 2,
  frames_per_auxhist23                = 8,
  auxhist5_outname                    = "sfc_vars_d<domain>_<date>.nc",
- auxhist5_interval 		     = 180,
+ auxhist5_interval 		             = 180,
  io_form_auxhist5                    = 2,
  frames_per_auxhist5                 = 8,
  
@@ -77,7 +77,11 @@
  /
  &noah_mp
  dveg                                = 4,
- opt_run 	                     = 1,
+ opt_run 	                         = 1,
+ opt_stc                             = 3,
+ opt_snf                             = 4,
+ opt_alb                             = 2,
+ opt_rsf                             = 4,
  /
  &physics
  physics_suite                       = 'CONUS',
@@ -102,7 +106,7 @@
  do_radar_ref                        = 1,
  tmn_update                          = 1,
  sst_skin                            = 1,
- !sst_update			     = 1,
+ sst_update	            		     = 1,
 
 
 
