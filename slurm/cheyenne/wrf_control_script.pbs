@@ -4,7 +4,7 @@
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N control__wrf_gbromley
+#PBS -N control_wrf_gbromley
 
 ### Wallclock time
 #PBS -l walltime=12:00:00
@@ -23,8 +23,10 @@ export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
 export RUNDIR=/glade/scratch/gbromley/2011_control
 
+export METGRID_DIR=/glade/p/univ/umsb0001/4km_metgrid_output/2011
 
-ln -sf /glade/p/univ/umsb0001/4km_metgrid_output/2011/* /glade/scratch/gbromley/2011_control/wrf/run/.
+
+ln -sf $METGRID_DIR/* $RUNDIR/wrf/run/.
 
 JID1=`qsub -h runreal.pbs`
 
