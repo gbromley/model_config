@@ -3,15 +3,15 @@
  run_hours                           = 00,
  run_minutes                         = 0,
  run_seconds                         = 0,
- start_year                          = 2011,
- start_month                         = 09,
- start_day                           = 18,
+ start_year                          = 2010,
+ start_month                         = 10,
+ start_day                           = 01,
  start_hour                          = 00,
  start_minute                        = 00,
  start_second                        = 00,
- end_year                            = 2011,
- end_month                           = 10,
- end_day                             = 15,
+ end_year                            = 2010,
+ end_month                           = 11,
+ end_day                             = 01,
  end_hour                            = 00,
  end_minute                          = 00,
  end_second                          = 00,
@@ -19,8 +19,8 @@
  input_from_file                     = .true.,
  history_interval                    = 180,
  frames_per_outfile                  = 8,
- restart                             = .true.,
- write_hist_at_0h_rst		      = .true.,
+ restart                             = .false,
+ write_hist_at_0h_rst		         = .true.,
  restart_interval                    = 25920,
  io_form_history                     = 2,
  io_form_restart                     = 2,
@@ -30,10 +30,10 @@
  auxinput4_inname                    = "wrflowinp_d<domain>",
  auxinput4_interval_s                 = 10800,
  io_form_auxinput4                   = 2,
- auxhist2_outname                    = "radar_d<domain>_<date>.nc",
+ auxhist2_outname                    = "conv_d<domain>_<date>.nc",
  io_form_auxhist2                    = 2,
- auxhist2_interval                   = 5,
- frames_per_auxhist2		         = 288,
+ auxhist2_interval                   = 10,
+ frames_per_auxhist2		         = 144,
  auxhist23_outname                   = "press_d<domain>_<date>.nc",
  auxhist23_interval                  = 180,
  io_form_auxhist23                   = 2,
@@ -50,11 +50,14 @@
  p_lev_diags                        = 1,
  num_press_levels                   = 11,
  press_levels = 100000,95000,90000,85000,80000,70000,60000,50000,40000,30000,20000,
+ nwp_diagnostics                    = 1,
+ diag_nwp2                          = 1,
  /
  &afwa
- afwa_diag_opt =  1,
- afwa_cloud_opt = 1,
- afwa_buoy_opt = 1,
+ afwa_diag_opt                      = 1,
+ afwa_cloud_opt                     = 1,
+ afwa_buoy_opt                      = 1,
+ afwa_radar_opt                     = 1,
  /
 
  &domains
@@ -78,12 +81,17 @@
  parent_time_step_ratio              = 1,
  feedback                            = 1,
  smooth_option                       = 0,
- max_ts_locs                         = 8,
  /
+
  &noah_mp
  dveg                                = 4,
  opt_run 	                         = 1,
+ opt_stc                             = 3,
+ opt_snf                             = 4,
+ opt_alb                             = 2,
+ opt_rsf                             = 4,
  /
+
  &physics
  physics_suite                       = 'CONUS',
  radt                                = 30,
