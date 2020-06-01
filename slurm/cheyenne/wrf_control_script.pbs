@@ -21,7 +21,7 @@
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
 
-export RUNDIR=/glade/scratch/gbromley/2011_control
+export RUNDIR=/glade/scratch/gbromley/control_2011
 
 export METGRID_DIR=/glade/p/univ/umsb0001/4km_metgrid_output/2011
 

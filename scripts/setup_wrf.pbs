@@ -46,9 +46,9 @@ cd $RUNDIR
 
 ### Copy over fresh WRF and WPS software
 
-cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.1_intel_serial_large-file/. $RUNDIR/wps
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WPSV4.2_intel_serial_large-file/. $RUNDIR/wps
 
-cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.1.4_intel_dmpar/. $RUNDIR/wrf
+cp -r /glade/work/wrfhelp/PRE_COMPILED_CODE/WRFV4.2_intel_dmpar/. $RUNDIR/wrf
 
 ### remove the example namelist files
 
