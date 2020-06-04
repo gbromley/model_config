@@ -20,7 +20,7 @@ def next_restart(prev_namelist_path):
         print("Could not read file:", prev_namelist)
     else:
         f.close()
-    os.rename(prev_namelist, prev_namelist_path+'/backup.namelist.input')
+
 
     ### Get the last restart file by creation time ###
     list_of_restarts = glob.glob(prev_namelist_path +'/wrfrst*')  # * means all if need specific format then *.csv
@@ -34,6 +34,7 @@ def next_restart(prev_namelist_path):
 
     current_restart = dt.date(rst_year, rst_month, rst_day)
     with open(prev_namelist, 'r') as old_nl:
+        os.rename(prev_namelist, prev_namelist_path + '/backup.namelist.input')
         namelist = f90nml.read(old_nl)
         start_year = namelist['time_control']['start_year']
         start_month = namelist['time_control']['start_month']
