@@ -13,15 +13,15 @@ import shutil
 import glob
 
 def next_restart(prev_namelist_path):
+    prev_namelist = prev_namelist_path+'/namelist.input'
     try:
-        f = open(prev_namelist_path+'/namelist.input', 'r')
+        f = open(prev_namelist, 'r')
     except IOError:
         print("Could not read file:", prev_namelist)
     else:
         f.close()
-    if (os.path.exists(output_dir) == False):
-        return 1
-    shutil.copy(prev_namelist_path+'/namelist.input', prev_namelist_path+'/backup.namelist.input')
+    os.rename(prev_namelist, prev_namelist_path+'/backup.namelist.input')
+
     ### Get the last restart file by creation time ###
     list_of_restarts = glob.glob(prev_namelist_path +'wrfrst*')  # * means all if need specific format then *.csv
     latest_file = max(list_of_files, key=os.path.getctime)
@@ -45,10 +45,10 @@ def next_restart(prev_namelist_path):
         namelist['time_control']['start_day'] = current_restart.day
 
         try:
-            namelist.write(output_dir + new_restart.isoformat() + '_namelist.input')
+            namelist.write(prev_namelist_path+'/namelist.input')
             return 0
         except IOError:
-            print('File already exists', new_restart.isoformat() + '_namelist.input')
+            print('Problem with:', new_restart.isoformat() + '_namelist.input')
 
 
 def advance_modeltime(prev_namelist, interval, output_dir):
