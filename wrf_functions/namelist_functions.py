@@ -28,9 +28,9 @@ def next_restart(prev_namelist_path):
     print(latest_file)
     restart = latest_file.split('/')[-1]
     ### format of restart file name: wrfrst_d01_2010-11-22_00:00:00 ###
-    rst_year = restart[11:15]
-    rst_month =  restart[16:18]
-    rst_day = restart[19:21]
+    rst_year = int(restart[11:15])
+    rst_month =  int(restart[16:18])
+    rst_day = int(restart[19:21])
 
     current_restart = dt.date(rst_year, rst_month, rst_day)
     with open(prev_namelist, 'r') as old_nl:
