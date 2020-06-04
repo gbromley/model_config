@@ -15,10 +15,8 @@ def main():
 
 
 
-    namelist_file = sys.argv[1]
-    interval = int(sys.argv[2])
-    output_dir = sys.argv[3]
-
+    namelist_file_path = sys.argv[1]
+    namelist_file = namelist_file_path + '/namelist.input'
     ### Try and open the namelist to makesure it exists
     try:
         f = open(namelist_file, 'r')
@@ -27,9 +25,8 @@ def main():
     else:
         f.close()
     print("Namelist file: "+namelist_file)
-    print("Destination: "+output_dir)
     ### Run the advance restart code
-    return_code = nf.advance_restart(namelist_file, interval,output_dir)
+    return_code = nf.next_restart(namelist_file_path)
     ### Pass return code from advance_restart to bash
     return return_code
 

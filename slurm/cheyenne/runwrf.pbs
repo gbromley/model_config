@@ -21,7 +21,7 @@
 ### Remove output from the previous run
 
 
-export OUTPUT_DIR=/glade/p/univ/umsb0001/model_runs/2011_control
+export OUTPUT_DIR=/glade/p/univ/umsb0001/model_runs/control_2011
 
 export RUNDIR=/glade/scratch/gbromley/2011_control
 

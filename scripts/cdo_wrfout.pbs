@@ -22,7 +22,7 @@
 
 module load cdo
 
-export SIMULATION_NAME='2011_control'
+export SIMULATION_NAME='control_2011'
 
 export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/wrfout
 
