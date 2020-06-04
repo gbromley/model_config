@@ -23,13 +23,14 @@ def next_restart(prev_namelist_path):
     os.rename(prev_namelist, prev_namelist_path+'/backup.namelist.input')
 
     ### Get the last restart file by creation time ###
-    list_of_restarts = glob.glob(prev_namelist_path +'wrfrst*')  # * means all if need specific format then *.csv
+    list_of_restarts = glob.glob(prev_namelist_path +'/wrfrst*')  # * means all if need specific format then *.csv
     latest_file = max(list_of_restarts, key=os.path.getctime)
     print(latest_file)
+    restart = latest_file.split('/')[-1]
     ### format of restart file name: wrfrst_d01_2010-11-22_00:00:00 ###
-    rst_year = latest_file[11:15]
-    rst_month =  latest_file[16:18]
-    rst_day = latest_file[19:21]
+    rst_year = restart[11:15]
+    rst_month =  restart[16:18]
+    rst_day = restart[19:21]
 
     current_restart = dt.date(rst_year, rst_month, rst_day)
     with open(prev_namelist, 'r') as old_nl:
