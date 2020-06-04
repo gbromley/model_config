@@ -24,7 +24,7 @@ def next_restart(prev_namelist_path):
 
     ### Get the last restart file by creation time ###
     list_of_restarts = glob.glob(prev_namelist_path +'wrfrst*')  # * means all if need specific format then *.csv
-    latest_file = max(list_of_files, key=os.path.getctime)
+    latest_file = max(list_of_restarts, key=os.path.getctime)
     print(latest_file)
     ### format of restart file name: wrfrst_d01_2010-11-22_00:00:00 ###
     rst_year = latest_file[11:15]
