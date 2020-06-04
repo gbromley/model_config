@@ -45,12 +45,12 @@
 
  iofields_filename                   = "4km_era5_iofields.txt",
  ignore_iofields_warning             = .true.,
+ nwp_diagnostics                    = 1,
  /
  &diags
  p_lev_diags                        = 1,
  num_press_levels                   = 11,
  press_levels = 100000,95000,90000,85000,80000,70000,60000,50000,40000,30000,20000,
- nwp_diagnostics                    = 1,
  diag_nwp2                          = 1,
  /
  &afwa

@@ -3,10 +3,12 @@
 # Author: Gabe Bromley
 ###
 import sys
-sys.path.append('/Users/gbromley/code/model_config/wrf_functions/')
+import os
+HOME=os.environ['HOME']
+sys.path.append(HOME+'/config_files/model_config/wrf_functions/')
 import namelist_functions as nf
 import sys
-import os
+
 
 
 def main():
