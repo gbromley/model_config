@@ -12,7 +12,7 @@ import sys
 import shutil
 import glob
 
-def next_restart(prev_namelist_path)
+def next_restart(prev_namelist_path):
     try:
         f = open(prev_namelist_path+'/namelist.input', 'r')
     except IOError:
