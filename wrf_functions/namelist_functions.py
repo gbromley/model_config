@@ -50,7 +50,7 @@ def next_restart(prev_namelist_path):
         ### Advance the end date by adv_days number of days ###
         current_end_date = dt.date(end_year, end_month, end_day)
         new_restart_end_date = current_end_date + dt.timedelta(days = adv_days)
-        print('End date will be advanced by '+adv_days+' days')
+        print('End date will be advanced by '+ str(adv_days) +' days')
 
         ### Write out the new start and end days ###
         namelist.end_comma = True
