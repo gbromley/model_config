@@ -82,6 +82,8 @@ cp -f $CONTROL/scripts/wrfout_move.pbs $RUNDIR/wrf/run/.
 
 cp -f $CONTROL/scripts/cdo_wrfout.pbs $RUNDIR/wrf/run/.
 
+cp -f $CONTROL/scripts/advance_restart.pbs $RUNDIR/wrf/run/.
+
 
 cp -f $CONTROL/scripts/run_wps.pbs $RUNDIR/wps/.
 
