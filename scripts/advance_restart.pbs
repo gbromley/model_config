@@ -1,0 +1,28 @@
+#!/bin/bash -l
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N advance_restart
+
+### Wallclock time
+#PBS -l walltime=00:05:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=1:ncpus=2:mpiprocs=1
+
+
+### load python libraries needed
+module load python/3.6.8
+module load ncarenv
+ncar_pylib npl_gbromley
+
+
+python3 next_restart.py /glade/scratch/gbromley/control_2011/wrf/run

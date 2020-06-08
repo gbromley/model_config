@@ -33,6 +33,8 @@ JID1=`qsub -h runreal.pbs`
 
 JID2=`qsub -W depend=afterok:$JID1 runwrf.pbs`
 
+JID3=`qsub -W depend=afterok:$JID2 advance_restart.pbs`
+
 
 qrls $JID1
 

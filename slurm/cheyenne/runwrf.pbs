@@ -31,16 +31,8 @@ mv -f $RUNDIR/wrf/run/sfc* $OUTPUT_DIR/sfc/.
 
 mv -f $RUNDIR/wrf/run/press* $OUTPUT_DIR/press/.
 
-mv -f $RUNDIR/wrf/run/radar* $OUTPUT_DIR/radar/.
+mv -f $RUNDIR/wrf/run/radar* $OUTPUT_DIR/conv/.
 
-mv -f $RUNDIR/wrf/run/*.TS $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.UU $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.VV $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.WW $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.TH $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.PH $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.QV $OUTPUT_DIR/timeseries/.
-mv -f $RUNDIR/wrf/run/*.PR $OUTPUT_DIR/timeseries/.
 
 ### load python libraries needed for fallow input
 module load python/3.6.8
