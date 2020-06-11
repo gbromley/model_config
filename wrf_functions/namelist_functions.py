@@ -33,7 +33,7 @@ def next_restart(prev_namelist_path):
     rst_month =  int(restart[16:18])
     rst_day = int(restart[19:21])
     ### Set the number of days the model should run, make sure its n+1 of the restart interval ###
-    adv_days = 17
+    adv_days = 16
     current_restart = dt.date(rst_year, rst_month, rst_day)
     with open(prev_namelist, 'r') as old_nl:
         os.rename(prev_namelist, prev_namelist_path + '/backup.namelist.input')
