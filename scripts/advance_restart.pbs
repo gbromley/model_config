@@ -25,4 +25,4 @@ module load ncarenv
 ncar_pylib npl_gbromley
 
 
-python3 next_restart.py /glade/scratch/gbromley/control_2011/wrf/run
+python3 next_restart.py /glade/scratch/gbromley/fallow_2011/wrf/run
