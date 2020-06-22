@@ -10,7 +10,7 @@
 #PBS -l walltime=00:30:00
 
 ### Queue
-#PBS -q economy
+#PBS -q share
 
 ### Merge output and error files
 #PBS -j oe
@@ -18,7 +18,7 @@
 #PBS -o WPS_gbromley.out
 
 ### Select 2 nodes with 36 CPUs, for 72 MPI processes
-#PBS -l select=1:ncpus=36:mpiprocs=36
+#PBS -l select=1:ncpus=2:mpiprocs=2
 
 
 export CONTROL=/glade/u/home/gbromley/config_files/model_config
