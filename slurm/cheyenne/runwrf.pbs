@@ -23,7 +23,7 @@
 
 export OUTPUT_DIR=/glade/p/univ/umsb0001/model_runs/fallow_2011
 
-export RUNDIR=/glade/scratch/gbromley/2011_control
+export RUNDIR=/glade/scratch/gbromley/fallow_2011
 
 mv -f $RUNDIR/wrf/run/wrfout* $OUTPUT_DIR/wrfout/.
 
@@ -41,7 +41,7 @@ ncar_pylib npl_gbromley
 
 ### inserting fallow
 
-python3 insert_fallow.py wrfinput_d01 fallow_2011_wrfgrid.nc
+python3 insert_fallow.py wrfinput_d01 fallow_1984_wrfgrid.nc
 
 mv wrfinput_d01 wrfinput_backup 
 mv wrfinput_d01_modified wrfinput_d01
