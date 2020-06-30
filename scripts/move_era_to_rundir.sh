@@ -49,11 +49,11 @@ ln -sf $DATA_DIR/${data_type}_157_r.${data_type_sc}.${file_time_s}_${file_time_e
 ln -sf $DATA_DIR/${data_type}_131_u.${data_type_uv}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_131_u.${data_type_uv}.${file_time_s}_${file_time_e}.grb
 ln -sf $DATA_DIR/${data_type}_132_v.${data_type_uv}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_132_v.${data_type_uv}.${file_time_s}_${file_time_e}.grb
 ### This is for the new era5 data (ds633.0)
-if test -f "$DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb"; then
+if [test -f "$DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb"]; then
     ln -sf $DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_132_v.${data_type_uv}.${file_time_s}_${file_time_e}.grb
 fi
 ### This is for the new era5 data (ds633.0)
-if test -f "$DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb"; then
+if [test -f "$DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb"]; then
     ln -sf $DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_131_u.${data_type_uv}.${file_time_s}_${file_time_e}.grb
 fi
 # surface data
