@@ -51,12 +51,12 @@ ln -sf $DATA_DIR/${data_type}_132_v.${data_type_uv}.${file_time_s}_${file_time_e
 ### This is for the new era5 data (ds633.0)
 if ( -f "$DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb") then
     echo 'in one of the If statements'
-    ln -sf $DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_132_v.${data_type_uv}.${file_time_s}_${file_time_e}.grb
+    ln -sf $DATA_DIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_132_v.${data_type_ll}.${file_time_s}_${file_time_e}.grb
 endif
 ### This is for the new era5 data (ds633.0)
 if ( -f "$DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb") then
     echo 'in the second statement'
-    ln -sf $DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_131_u.${data_type_uv}.${file_time_s}_${file_time_e}.grb
+    ln -sf $DATA_DIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb $RUNDIR/${data_type}_131_u.${data_type_ll}.${file_time_s}_${file_time_e}.grb
 endif
 # surface data
 #
