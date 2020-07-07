@@ -4,7 +4,7 @@
 #PBS -A UMSB0001
 
 ### Job name
-#PBS -N WPS_gbromley
+#PBS -N wrf_setup_gbromley
 
 ### Wallclock time
 #PBS -l walltime=00:30:00
