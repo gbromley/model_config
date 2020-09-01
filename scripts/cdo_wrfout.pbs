@@ -22,30 +22,33 @@
 
 module load cdo
 
-export SIMULATION_NAME='control_2011'
+export YEAR_START=2011
+export YEAR_END=2012
+export SIMULATION_NAME='fallow_2011'
 
-export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/wrfout
+export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/
 
-cd $DATA_DIR
+cd $DATA_DIR/wrfout
 
-cdo -P 8 select,name=T2,Q2,RAINNC,I_RAINNC wrfout_d01* ${SIMULATION_NAME}_temporary.nc
+cdo -P 8 select,name=T2,Q2, wrfout_d01* ${SIMULATION_NAME}.T2.all.nc
 
-cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_temp.nc ${SIMULATION_NAME}_full.nc
+cdo -select,startdate=${YEAR_START}-04-01,enddate=${YEAR_END}-04-01 ${SIMULATION_NAME}.T2P.all.nc ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.temporary.nc
 
-cdo monmean ${SIMULATION_NAME}_full.nc ${SIMULATION_NAME}_monthly.nc
+cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.temporary.nc ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.nc
 
-cdo -P 8 remapbil,global_.5 ${SIMULATION_NAME}_monthly.nc ${SIMULATION_NAME}_monthly_crugrid.nc
+cdo monmean ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.nc ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.monmean.nc
 
-### Daily averaged fluxes
-cdo -P select,name=LH,HFX wrfout_d01* ${SIMULATION_NAME}_flux_temporary.nc
+cdo -P 8 remapbil,global_.5 ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.monmean.nc ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.monmean.crugrid.nc
 
-cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}_flux_temporary.nc ${SIMULATION_NAME}_flux_full.nc
+### Precip Selection ###
+cd $DATA_DIR/sfc
 
+cdo -select,RAINNC,I_RAINNC, sfc* ${SIMULATION_NAME}.RAINNC.all.nc
 
+cdo -select,startdate=${YEAR_START}-04-01,enddate=${YEAR_END}-04-01 ${SIMULATION_NAME}.RAINNC.all.nc ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_END}.temporary.nc
 
+cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_END}.temporary.nc ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_END}.nc
 
+cdo -expr,'ACCUM_RAINNC=RAINNC+1000.*I_RAINNC' ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_END}.nc ${SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.nc
 
-#ext_e = -92
-#ext_w = -115
-#ext_n = 55
-#ext_s = 40
+cdo -monsum {SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.nc {SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.monsum.nc
