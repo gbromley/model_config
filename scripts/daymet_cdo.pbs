@@ -1,0 +1,58 @@
+#!/bin/bash -l
+
+### Project name
+#PBS -A UMSB0001
+
+### Job name
+#PBS -N cdo_gbromley
+
+### Wallclock time
+#PBS -l walltime=8:00:00
+
+### Queue
+#PBS -q economy
+
+### Merge output and error files
+#PBS -j oe
+#TODO: change this to reflect run directory
+#PBS -o cdo_gbromley.out
+
+### Select 2 nodes with 36 CPUs, for 72 MPI processes
+#PBS -l select=1:ncpus=8:ompthreads=8
+
+module load cdo
+module load nco
+
+export YEAR_START=2011
+export YEAR_END=2013
+
+export DATA_DIR=/glade/work/gbromley/verification_data/daymet/
+
+cd $DATA_DIR/temp
+
+cdo merge daymet* daymet.temp.all.nc
+
+cdo expr,'tmean=((tmax + tmin)/2)' daymet.temp.all daymet_temprorary.nc
+
+cdo select,name=tmean, daymet_temporary.nc daymet.tmean.nc
+
+cdo -select,startdate=${YEAR_START}-04-01,enddate=${YEAR_END}-04-01 daymet.tmean.nc daymet.tmean.${YEAR_START}-${YEAR_END}.temporary.nc
+
+cdo -sellonlatbox,-115,-92,55,40 daymet.tmean.${YEAR_START}-${YEAR_END}.temporary.nc daymet.tmean.${YEAR_START}-${YEAR_END}.nc
+
+cdo monmean daymet.tmean.${YEAR_START}-${YEAR_END}.nc daymet.tmean.${YEAR_START}-${YEAR_END}.monmean.nc
+
+cdo -P 8 remapbil,global_.5 daymet.tmean.${YEAR_START}-${YEAR_END}.monmean.nc daymet.tmean.${YEAR_START}-${YEAR_END}.monmean.crugrid.nc
+
+### Precip Selection ###
+cd $DATA_DIR/precip
+
+
+
+cdo -select,startdate=${YEAR_START}-04-01,enddate=${YEAR_END}-04-01 *_lcc.nc4 daymet.prcp.${YEAR_START}-${YEAR_END}.temporary.nc
+
+cdo -sellonlatbox,-115,-92,55,40 daymet.prcp.${YEAR_START}-${YEAR_END}.temporary.nc daymet.prcp.${YEAR_START}-${YEAR_END}.nc
+
+cdo monsum daymet.prcp.${YEAR_START}-${YEAR_END}.nc daymet.prcp.${YEAR_START}-${YEAR_END}.monsum.nc
+
+cdo -P 8 remap_con,global_.5 daymet.prcp.${YEAR_START}-${YEAR_END}.monsum.nc daymet.prcp.${YEAR_START}-${YEAR_END}.monsum.crugrid.nc

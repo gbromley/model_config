@@ -21,7 +21,6 @@
 #PBS -l select=1:ncpus=8:ompthreads=8
 
 module load cdo
-
 export YEAR_START=2011
 export YEAR_END=2012
 export SIMULATION_NAME='fallow_2011'
@@ -29,6 +28,7 @@ export SIMULATION_NAME='fallow_2011'
 export DATA_DIR=/glade/p/univ/umsb0001/model_runs/${SIMULATION_NAME}/
 
 cd $DATA_DIR/wrfout
+
 
 cdo -P 8 select,name=T2,Q2, wrfout_d01* ${SIMULATION_NAME}.T2.all.nc
 
@@ -40,8 +40,10 @@ cdo monmean ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.nc ${SIMULATION_NAM
 
 cdo -P 8 remapbil,global_.5 ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.monmean.nc ${SIMULATION_NAME}.T2P.${YEAR_START}-${YEAR_END}.monmean.crugrid.nc
 
+
+
 ### Precip Selection ###
-cd $DATA_DIR/sfc
+cd $DATA_DIR/
 
 cdo -select,RAINNC,I_RAINNC, sfc* ${SIMULATION_NAME}.RAINNC.all.nc
 
@@ -51,4 +53,4 @@ cdo -sellonlatbox,-115,-92,55,40 ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_
 
 cdo -expr,'ACCUM_RAINNC=RAINNC+1000.*I_RAINNC' ${SIMULATION_NAME}.RAINNC.${YEAR_START}-${YEAR_END}.nc ${SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.nc
 
-cdo -monsum {SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.nc {SIMULATION_NAME}.ACCUM_RAINNC.${YEAR_START}-${YEAR_END}.monsum.nc
+cdo -monsu
